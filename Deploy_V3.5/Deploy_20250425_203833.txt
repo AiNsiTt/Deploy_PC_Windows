@@ -1,0 +1,1447 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250425203833
+Nom d'utilisateur : DESKTOP-LPLRTEN\Utilisateur
+Utilisateur runAs :  DESKTOP-LPLRTEN\Utilisateur
+Nom de la configuration : 
+Ordinateur : DESKTOP-LPLRTEN (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V3.5\Deploy.ps1 
+ID de processus : 7636
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V3.5\Logs\Deploy_20250425_203833.log
+[2025-04-25 20:38:33] [INFO] Vérification droits admin...
+[2025-04-25 20:38:33] [SUCCESS] Droits admin ok.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Vérifications initiales
+================================================================================
+[2025-04-25 20:38:33] [STEP] Début de l'étape : Vérifications initiales
+[2025-04-25 20:38:33] [INFO] Démarrage script v4.0.2025
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Nom PC
+================================================================================
+[2025-04-25 20:38:33] [STEP] Début de l'étape : Nom PC
+AVERTISSEMENT : Les modifications seront prises en compte après le redémarrage de l'ordinateur DESKTOP-LPLRTEN.
+[2025-04-25 20:38:34] [SUCCESS] Renommage OK: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Config Système Base
+================================================================================
+[2025-04-25 20:38:34] [STEP] Début de l'étape : Config Système Base
+
+
+{20D04FE0-3AEA-1069-A2D8-08002B30309D} : 0
+PSPath                                 : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+PSParentPath                           : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+PSChildName                            : NewStartPanel
+PSDrive                                : HKCU
+PSProvider                             : Microsoft.PowerShell.Core\Registry
+
+True
+{59031a47-3f72-44a7-89c5-5595fe6b30ee} : 0
+PSPath                                 : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+PSParentPath                           : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+PSChildName                            : NewStartPanel
+PSDrive                                : HKCU
+PSProvider                             : Microsoft.PowerShell.Core\Registry
+
+True
+{20D04FE0-3AEA-1069-A2D8-08002B30309D} : 0
+PSPath                                 : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu
+PSParentPath                           : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+PSChildName                            : ClassicStartMenu
+PSDrive                                : HKCU
+PSProvider                             : Microsoft.PowerShell.Core\Registry
+
+True
+{59031a47-3f72-44a7-89c5-5595fe6b30ee} : 0
+PSPath                                 : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu
+PSParentPath                           : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+PSChildName                            : ClassicStartMenu
+PSDrive                                : HKCU
+PSProvider                             : Microsoft.PowerShell.Core\Registry
+
+True
+True
+
+
+
+
+
+
+True
+[2025-04-25 20:38:34] [SUCCESS] Config système base terminée.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Gestion BitLocker
+================================================================================
+[2025-04-25 20:38:35] [STEP] Début de l'étape : Gestion BitLocker
+AVERTISSEMENT : Les noms de certaines commandes importées du module « BitLocker » contiennent des verbes non approuvés qui peuvent les rendre moins détectables. Pour trouver les commandes comportant des verbes non approuvés, réexécutez la commande Import-Module avec le paramètre Verbose. Pour obtenir la liste des verbes approuvés, tapez Get-Verb.
+[2025-04-25 20:38:36] [INFO] Volume C: statut FullyEncrypted
+PS>Erreur de terminaison (Clear-BitLockerAutoUnlock) : « Impossible de trouver un paramètre correspondant au nom « MountPoint ». »
+Clear-BitLockerAutoUnlock : Impossible de trouver un paramètre correspondant au nom « MountPoint ».
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V3.5\Deploy.ps1:168 : 47
++                     Clear-BitLockerAutoUnlock -MountPoint $vol.MountP ...
++                                               ~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Clear-BitLockerAutoUnlock], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Clear-BitLockerAutoUnlock
+Clear-BitLockerAutoUnlock : Impossible de trouver un paramètre correspondant au nom « MountPoint ».
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V3.5\Deploy.ps1:168 : 47
++                     Clear-BitLockerAutoUnlock -MountPoint $vol.MountP ...
++                                               ~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Clear-BitLockerAutoUnlock], ParameterBindingException
+    + FullyQualifiedErrorId : NamedParameterNotFound,Clear-BitLockerAutoUnlock
+
+ComputerName          : DESKTOP-LPLRTEN
+MountPoint            : C:
+EncryptionMethod      : XtsAes128
+EncryptionMethodFlags : None
+AutoUnlockEnabled     :
+AutoUnlockKeyStored   : False
+MetadataVersion       : 2
+VolumeStatus          : DecryptionInProgress
+ProtectionStatus      : Off
+LockStatus            : Unlocked
+EncryptionPercentage  : 23
+WipePercentage        : 0
+VolumeType            : OperatingSystem
+CapacityGB            : 79,24316
+KeyProtector          : {}
+
+[2025-04-25 20:38:37] [SUCCESS] Déchiffrement lancé.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Choco & Base
+================================================================================
+[2025-04-25 20:38:37] [STEP] Début de l'étape : Choco & Base
+[2025-04-25 20:38:41] [INFO] firefox déjà installé
+Chocolatey v2.4.3
+3 validations performed. 2 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable --name="exitOnRebootDetected"
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+googlechrome
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+GoogleChrome v135.0.7049.96 [Approved]
+GoogleChrome package files install completed. Performing other installation steps.
+File appears to be downloaded already. Verifying with package checksum to determine if it needs to be redownloaded.
+Error - hashes do not match. Actual value was '87DCDBABE7F93BB66F8636CC18DCD852D254044A68E74F3C41D1D6C03E7D1BDF'.
+Downloading googlechrome 64 bit
+  from 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi'
+
+Download of googlechromestandaloneenterprise64.msi (126.73 MB) completed.
+Error - hashes do not match. Actual value was '87DCDBABE7F93BB66F8636CC18DCD852D254044A68E74F3C41D1D6C03E7D1BDF'.
+ERROR: Checksum for 'C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\GoogleChrome\135.0.7049.96\googlechromestandaloneenterprise64.msi' did not meet '020d946e9d3be75242f672830f6b6dd335d49
+aa34e5030864690e539b579f176' for checksum type 'sha256'. Consider passing the actual checksums through with --checksum --checksum64 once you validate the checksums are appropriate. A less se
+cure option is to pass --ignore-checksums if necessary.
+The install of GoogleChrome was NOT successful.
+Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+ See log for details.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - GoogleChrome (exited -1) - Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+ See log for details.
+Chocolatey v2.4.3
+3 validations performed. 2 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable --name="exitOnRebootDetected"
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+adobereader
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919442 v1.0.20160915 [Approved]
+KB2919442 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919442 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919355 v1.0.20160915 [Approved]
+KB2919355 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919355 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+adobereader v2025.1.20432
+adobereader package files install completed. Performing other installation steps.
+WARNING: No registry key found based on  'Adobe Acrobat*'
+Configuring manual update checks and installs.
+Downloading adobereader 64 bit
+  from 'https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2500120432/AcroRdrDCx642500120432_MUI.exe'
+
+Download of AcroRdrDCx642500120432_MUI.exe (674.3 MB) completed.
+Hashes match.
+Installing adobereader (installer)...
+adobereader (installer) has been installed.
+  adobereader may be able to be automatically uninstalled.
+ The install of adobereader was successful.
+  Deployed to 'C:\Program Files\Adobe\Acrobat DC\'
+
+Chocolatey installed 3/3 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+Chocolatey v2.4.3
+3 validations performed. 2 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable --name="exitOnRebootDetected"
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+7zip.install
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+7zip.install v24.9.0 [Approved]
+7zip.install package files install completed. Performing other installation steps.
+Installing 64 bit version
+Installing 7zip.install...
+7zip.install has been installed.
+7zip installed to 'C:\Program Files\7-Zip'
+Added C:\ProgramData\chocolatey\bin\7z.exe shim pointed to 'c:\program files\7-zip\7z.exe'.
+  7zip.install can be automatically uninstalled.
+ The install of 7zip.install was successful.
+  Deployed to 'C:\Program Files\7-Zip\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+Chocolatey v2.4.3
+3 validations performed. 2 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable --name="exitOnRebootDetected"
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+teamviewer
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+teamviewer v15.64.3 [Approved]
+teamviewer package files install completed. Performing other installation steps.
+Downloading teamviewer 64 bit
+  from 'https://download.teamviewer.com/download/version_15x/TeamViewer_Setup_x64.exe'
+
+Download of teamviewerInstall.EXE (72 MB) completed.
+Hashes match.
+Installing teamviewer...
+teamviewer has been installed.
+  teamviewer may be able to be automatically uninstalled.
+ The install of teamviewer was successful.
+  Deployed to 'C:\Program Files\TeamViewer'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Did you know the proceeds of Pro (and some proceeds from other
+ licensed editions) go into bettering the community infrastructure?
+ Your support ensures an active community, keeps Chocolatey tip-top,
+ plus it nets you some awesome features!
+ https://chocolatey.org/compare
+Chocolatey v2.4.3
+3 validations performed. 2 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable --name="exitOnRebootDetected"
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+openjdk
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+openjdk v22.0.2 [Approved]
+openjdk package files install completed. Performing other installation steps.
+Downloading openjdk 64 bit
+  from 'https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bin.zip'
+
+Download of openjdk-22.0.2_windows-x64_bin.zip (191.28 MB) completed.
+Hashes match.
+Extracting C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\openjdk\22.0.2\openjdk-22.0.2_windows-x64_bin.zip to C:\Program Files\OpenJDK...
+C:\Program Files\OpenJDK
+PATH environment variable does not have C:\Program Files\OpenJDK\jdk-22.0.2\bin in it. Adding...
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of openjdk was successful.
+  Deployed to 'C:\Program Files\OpenJDK'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+Chocolatey v2.4.3
+3 validations performed. 2 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable --name="exitOnRebootDetected"
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+dotnetfx
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-dotnetfx.extension v1.0.1
+chocolatey-dotnetfx.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-dotnetfx extensions.
+ The install of chocolatey-dotnetfx.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-dotnetfx'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+dotnetfx v4.8.0.20220524 [Approved]
+dotnetfx package files install completed. Performing other installation steps.
+Microsoft .NET Framework 4.8 or later is already installed.
+ The install of dotnetfx was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+
+Chocolatey installed 2/2 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:48:49] [SUCCESS] Base terminée.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Logiciels Optionnels
+================================================================================
+[2025-04-25 20:48:49] [STEP] Début de l'étape : Logiciels Optionnels
+--- Logiciels Optionnels ---
+6. VLC Media Player
+5. FortiClient VPN
+4. OpenVPN Connect
+3. Office 2021 Famille/PME
+2. Office 2019 Famille/PME
+1. Microsoft 365 Business
+[2025-04-25 20:48:50] [SUCCESS] Optionnels terminés.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Confidentialité & Optimisation
+================================================================================
+[2025-04-25 20:48:50] [STEP] Début de l'étape : Confidentialité & Optimisation
+True
+HttpAcceptLanguageOptOut : 1
+PSPath                   : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Control Panel\International\User Profile
+PSParentPath             : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Control Panel\International
+PSChildName              : User Profile
+PSDrive                  : HKCU
+PSProvider               : Microsoft.PowerShell.Core\Registry
+
+True
+Start_TrackProgs : 0
+PSPath           : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Privacy
+PSParentPath     : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer
+PSChildName      : Privacy
+PSDrive          : HKCU
+PSProvider       : Microsoft.PowerShell.Core\Registry
+
+True
+True
+SubscribedContent-310093Enabled : 0
+PSPath                          : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager
+PSParentPath                    : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+PSChildName                     : ContentDeliveryManager
+PSDrive                         : HKCU
+PSProvider                      : Microsoft.PowerShell.Core\Registry
+
+True
+AllowAutoGameMode : 0
+PSPath            : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\GameBar
+PSParentPath      : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft
+PSChildName       : GameBar
+PSDrive           : HKCU
+PSProvider        : Microsoft.PowerShell.Core\Registry
+
+True
+AppCaptureEnabled : 0
+PSPath            : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\GameDVR
+PSParentPath      : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion
+PSChildName       : GameDVR
+PSDrive           : HKCU
+PSProvider        : Microsoft.PowerShell.Core\Registry
+
+True
+FastPackageReference : https://onegetcdn.azureedge.net/providers/nuget-2.8.5.208.package.swidtag
+ProviderName         : Bootstrap
+Source               : https://onegetcdn.azureedge.net/providers/nuget-2.8.5.208.package.swidtag
+Status               : Installed
+SearchKey            : https://onegetcdn.azureedge.net/providers/nuget-2.8.5.208.package.swidtag
+FullPath             :
+PackageFilename      : Microsoft.PackageManagement.NuGetProvider.dll
+FromTrustedSource    : False
+Summary              : NuGet provider for the OneGet meta-package manager
+SwidTags             : {nuget}
+CanonicalId          : bootstrap:nuget/2.8.5.208#https://onegetcdn.azureedge.net/providers/nuget-2.8.5.208.package.swidtag
+Metadata             : {summary,providerName,providerVersion,summary}
+SwidTagText          : <?xml version="1.0" encoding="utf-16" standalone="yes"?>
+                       <SoftwareIdentity
+                         name="nuget"
+                         version="2.8.5.208"
+                         versionScheme="multipartnumeric" xmlns="http://standards.iso.org/iso/19770/-2/2015/schema.xsd">
+                         <Meta
+                           summary="NuGet provider for the OneGet meta-package manager" />
+                         <Meta
+                           providerName="nuget"
+                           providerVersion="2.8.5.208"
+                           summary="NuGet provider for the OneGet meta-package manager" />
+                         <Link
+                           href="https://onegetcdn.azureedge.net/providers/Microsoft.PackageManagement.NuGetProvider-2.8.5.208.dll"
+                           rel="installationmedia"
+                           type="application/octet-stream"
+                           media="(OS:windows)" />
+                       </SoftwareIdentity>
+Dependencies         : {}
+IsCorpus             :
+Name                 : nuget
+Version              : 2.8.5.208
+VersionScheme        : multipartnumeric
+TagVersion           :
+TagId                :
+IsPatch              :
+IsSupplemental       :
+AppliesToMedia       :
+Meta                 : {{summary}, {providerName,providerVersion,summary}}
+Links                : {installationmedia:https://onegetcdn.azureedge.net/providers/Microsoft.PackageManagement.NuGetProvider-2.8.5.208.dll}
+Entities             : {}
+Payload              :
+Evidence             :
+Culture              :
+Attributes           : {name,version,versionScheme}
+
+DODownloadMode : 0
+PSPath         : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config
+PSParentPath   : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization
+PSChildName    : Config
+PSDrive        : HKLM
+PSProvider     : Microsoft.PowerShell.Core\Registry
+
+True
+DisableFileSyncNGSC : 1
+PSPath              : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive
+PSParentPath        : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows
+PSChildName         : OneDrive
+PSDrive             : HKLM
+PSProvider          : Microsoft.PowerShell.Core\Registry
+
+True
+StartupBoostEnabled : 0
+PSPath              : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge
+PSParentPath        : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft
+PSChildName         : Edge
+PSDrive             : HKLM
+PSProvider          : Microsoft.PowerShell.Core\Registry
+
+True
+ShowCopilotButton : 0
+PSPath            : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+PSParentPath      : Microsoft.PowerShell.Core\Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer
+PSChildName       : Advanced
+PSDrive           : HKCU
+PSProvider        : Microsoft.PowerShell.Core\Registry
+
+True
+[2025-04-25 20:51:10] [SUCCESS] Confidentialité & Optimisation terminée.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Outils Fabricant
+================================================================================
+[2025-04-25 20:51:10] [STEP] Début de l'étape : Outils Fabricant
+[2025-04-25 20:51:10] [INFO] Fabricant non géré.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : GoToAssist
+================================================================================
+[2025-04-25 20:51:10] [STEP] Début de l'étape : GoToAssist
+Échec lors de l’appel de la méthode, car [System.__ComObject] ne contient pas de méthode nommée « CreateShortcut ».
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V3.5\Deploy.ps1:249 : 5
++     (New-Object -Com Shell.Application).CreateShortcut($link).TargetP ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation : (CreateShortcut:String) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+Échec lors de l’appel de la méthode, car [System.__ComObject] ne contient pas de méthode nommée « CreateShortcut ».
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V3.5\Deploy.ps1:249 : 5
++     (New-Object -Com Shell.Application).CreateShortcut($link).TargetP ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation : (CreateShortcut:String) [], RuntimeException
+    + FullyQualifiedErrorId : MethodNotFound
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Infos OEM
+================================================================================
+[2025-04-25 20:51:10] [STEP] Début de l'étape : Infos OEM
+SupportURL   : https://www.koesio.com/
+PSPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+PSParentPath : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+PSChildName  : OEMInformation
+PSDrive      : HKLM
+PSProvider   : Microsoft.PowerShell.Core\Registry
+
+True
+Manufacturer : Koesio Aquitaine
+PSPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+PSParentPath : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+PSChildName  : OEMInformation
+PSDrive      : HKLM
+PSProvider   : Microsoft.PowerShell.Core\Registry
+
+True
+SupportHours : 08H30-12H30|14H00-17H30
+PSPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+PSParentPath : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+PSChildName  : OEMInformation
+PSDrive      : HKLM
+PSProvider   : Microsoft.PowerShell.Core\Registry
+
+True
+SupportPhone : 05 57 51 52 52
+PSPath       : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation
+PSParentPath : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+PSChildName  : OEMInformation
+PSDrive      : HKLM
+PSProvider   : Microsoft.PowerShell.Core\Registry
+
+True
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : Raccourcis & Épinglage
+================================================================================
+[2025-04-25 20:51:11] [STEP] Début de l'étape : Raccourcis & Épinglage
+[2025-04-25 20:51:11] [SUCCESS] Raccourcis & épinglage terminés.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO)  Version 4.0.2025  Étape : MàJ Windows
+================================================================================
+[2025-04-25 20:51:11] [STEP] Début de l'étape : MàJ Windows
+[2025-04-25 20:51:11] [INFO] Lancement MàJ Windows...
+Size                            : 78MB
+Status                          : A------
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB890830
+X                               : 1
+ChooseResult                    : Accepted
+Result                          : Accepted
+Title                           : Outil de suppression de logiciels malveillants Windows x64 - v5.132 (KB890830)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Après le téléchargement, cet outil est exécuté une fois pour vérifier si votre ordinateur est infecté par certains virus courants (notamment Blaster,
+                                  Sasser et Mydoom). Il aide ensuite à éradiquer les éventuelles infections détectées. Si une infection est détectée, l'outil présente un rapport d'état
+                                  lors du démarrage suivant de l'ordinateur. Une nouvelle version de cet outil sera proposée chaque mois. Si vous souhaitez exécuter l'outil manuellement
+                                  sur votre ordinateur, vous pouvez en télécharger une copie à partir du Centre de téléchargement Microsoft ou exécuter une version en ligne à partir de
+                                  microsoft.com. Cet outil n'est pas destiné à remplacer un antivirus. Pour aider à protéger votre ordinateur, vous devez utiliser un logiciel antivirus.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : False
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 11/02/2025 00:00:00
+MaxDownloadSize                 : 81282056
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : http://support.microsoft.com
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 18MB
+Status                          : A------
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5007651
+X                               : 1
+ChooseResult                    : Accepted
+Result                          : Accepted
+Title                           : Mise à jour pour Windows Security platform - KB5007651 (version 10.0.27777.1008)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Ce package met à jour Windows Security platform les composants sur l’ordinateur de l’utilisateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : False
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 16/04/2025 00:00:00
+MaxDownloadSize                 : 19019184
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://go.microsoft.com/fwlink/?LinkId=52661
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 186MB
+Status                          : A------
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB2267602
+X                               : 1
+ChooseResult                    : Accepted
+Result                          : Accepted
+Title                           : Mise à jour de la sélection disjointe pour Microsoft Defender Antivirus – 2267602 Ko (version 1.427.456.0) – Canal actuel (large)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Installer cette mise à jour pour réviser les fichiers utilisés pour détecter les virus, les espiogiciels et autres logiciels potentiellement indésirables.
+                                  Une fois que vous avez installé cet élément, il ne peut pas être supprimé.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : False
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 25/04/2025 00:00:00
+MaxDownloadSize                 : 195446992
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://go.microsoft.com/fwlink/?LinkId=52661
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 1
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 143MB
+Status                          : A------
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5054979
+X                               : 1
+ChooseResult                    : Accepted
+Result                          : Accepted
+Title                           : 2025-04 Mise à jour cumulative pour .NET Framework 3.5 pour et 4.8.1 pour Windows 11, version 24H2 pour les systèmes x64 (KB5054979)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Installez cette mise à jour pour résoudre des problèmes dans Windows. Pour consulter la liste complète des problèmes résolus par cette mise à jour,
+                                  reportez-vous à l'article correspondant de la Base de connaissances Microsoft. Une fois cette installation terminée, vous serez peut-être amené à
+                                  redémarrer l'ordinateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       : http://schemas.microsoft.com/msus/2016/01/UpdateHandlers/OSInstaller
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : False
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 08/04/2025 00:00:00
+MaxDownloadSize                 : 149969239
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://support.microsoft.com/help/5054979
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 1
+AutoDownload                    : 2
+
+Size                            : 86GB
+Status                          : AD-----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5055523
+X                               : 1
+ChooseResult                    : Accepted
+Result                          : Accepted
+Title                           : 2025-04 Mise à jour cumulative pour Windows 11 Version 24H2 pour les systèmes x64 (KB5055523)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : True
+DeltaCompressedContentPreferred : True
+Description                     : Installez cette mise à jour pour résoudre des problèmes dans Windows. Pour consulter la liste complète des problèmes résolus par cette mise à jour,
+                                  reportez-vous à l'article correspondant de la Base de connaissances Microsoft. Une fois cette installation terminée, vous serez peut-être amené à
+                                  redémarrer l'ordinateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       : http://schemas.microsoft.com/msus/2016/01/UpdateHandlers/OSInstaller
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 08/04/2025 00:00:00
+MaxDownloadSize                 : 92346648433
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://support.microsoft.com/help/5055523
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : True
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 1
+AutoDownload                    : 2
+
+Size                            : 78MB
+Status                          : AD-----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB890830
+X                               : 2
+ChooseResult                    : Accepted
+Result                          : Downloaded
+DownloadResult                  : Downloaded
+Title                           : Outil de suppression de logiciels malveillants Windows x64 - v5.132 (KB890830)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Après le téléchargement, cet outil est exécuté une fois pour vérifier si votre ordinateur est infecté par certains virus courants (notamment Blaster,
+                                  Sasser et Mydoom). Il aide ensuite à éradiquer les éventuelles infections détectées. Si une infection est détectée, l'outil présente un rapport d'état
+                                  lors du démarrage suivant de l'ordinateur. Une nouvelle version de cet outil sera proposée chaque mois. Si vous souhaitez exécuter l'outil manuellement
+                                  sur votre ordinateur, vous pouvez en télécharger une copie à partir du Centre de téléchargement Microsoft ou exécuter une version en ligne à partir de
+                                  microsoft.com. Cet outil n'est pas destiné à remplacer un antivirus. Pour aider à protéger votre ordinateur, vous devez utiliser un logiciel antivirus.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 11/02/2025 00:00:00
+MaxDownloadSize                 : 81282056
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : http://support.microsoft.com
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 18MB
+Status                          : AD-----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5007651
+X                               : 2
+ChooseResult                    : Accepted
+Result                          : Downloaded
+DownloadResult                  : Downloaded
+Title                           : Mise à jour pour Windows Security platform - KB5007651 (version 10.0.27777.1008)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Ce package met à jour Windows Security platform les composants sur l’ordinateur de l’utilisateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 16/04/2025 00:00:00
+MaxDownloadSize                 : 19019184
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://go.microsoft.com/fwlink/?LinkId=52661
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 186MB
+Status                          : AD-----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB2267602
+X                               : 2
+ChooseResult                    : Accepted
+Result                          : Downloaded
+DownloadResult                  : Downloaded
+Title                           : Mise à jour de la sélection disjointe pour Microsoft Defender Antivirus – 2267602 Ko (version 1.427.456.0) – Canal actuel (large)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Installer cette mise à jour pour réviser les fichiers utilisés pour détecter les virus, les espiogiciels et autres logiciels potentiellement indésirables.
+                                  Une fois que vous avez installé cet élément, il ne peut pas être supprimé.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 25/04/2025 00:00:00
+MaxDownloadSize                 : 195446992
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://go.microsoft.com/fwlink/?LinkId=52661
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 1
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 143MB
+Status                          : AD-----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5054979
+X                               : 2
+ChooseResult                    : Accepted
+Result                          : Downloaded
+DownloadResult                  : Downloaded
+Title                           : 2025-04 Mise à jour cumulative pour .NET Framework 3.5 pour et 4.8.1 pour Windows 11, version 24H2 pour les systèmes x64 (KB5054979)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Installez cette mise à jour pour résoudre des problèmes dans Windows. Pour consulter la liste complète des problèmes résolus par cette mise à jour,
+                                  reportez-vous à l'article correspondant de la Base de connaissances Microsoft. Une fois cette installation terminée, vous serez peut-être amené à
+                                  redémarrer l'ordinateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       : http://schemas.microsoft.com/msus/2016/01/UpdateHandlers/OSInstaller
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 08/04/2025 00:00:00
+MaxDownloadSize                 : 149969239
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://support.microsoft.com/help/5054979
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 1
+AutoDownload                    : 2
+
+Size                            : 86GB
+Status                          : AD-----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5055523
+X                               : 2
+ChooseResult                    : Accepted
+Result                          : Downloaded
+DownloadResult                  : Downloaded
+Title                           : 2025-04 Mise à jour cumulative pour Windows 11 Version 24H2 pour les systèmes x64 (KB5055523)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : True
+DeltaCompressedContentPreferred : True
+Description                     : Installez cette mise à jour pour résoudre des problèmes dans Windows. Pour consulter la liste complète des problèmes résolus par cette mise à jour,
+                                  reportez-vous à l'article correspondant de la Base de connaissances Microsoft. Une fois cette installation terminée, vous serez peut-être amené à
+                                  redémarrer l'ordinateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       : http://schemas.microsoft.com/msus/2016/01/UpdateHandlers/OSInstaller
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 08/04/2025 00:00:00
+MaxDownloadSize                 : 92346648433
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://support.microsoft.com/help/5055523
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : True
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 1
+AutoDownload                    : 2
+
+Size                            : 78MB
+Status                          : ADI----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB890830
+X                               : 3
+ChooseResult                    : Accepted
+Result                          : Installed
+DownloadResult                  : Downloaded
+InstallResult                   : Installed
+Title                           : Outil de suppression de logiciels malveillants Windows x64 - v5.132 (KB890830)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Après le téléchargement, cet outil est exécuté une fois pour vérifier si votre ordinateur est infecté par certains virus courants (notamment Blaster,
+                                  Sasser et Mydoom). Il aide ensuite à éradiquer les éventuelles infections détectées. Si une infection est détectée, l'outil présente un rapport d'état
+                                  lors du démarrage suivant de l'ordinateur. Une nouvelle version de cet outil sera proposée chaque mois. Si vous souhaitez exécuter l'outil manuellement
+                                  sur votre ordinateur, vous pouvez en télécharger une copie à partir du Centre de téléchargement Microsoft ou exécuter une version en ligne à partir de
+                                  microsoft.com. Cet outil n'est pas destiné à remplacer un antivirus. Pour aider à protéger votre ordinateur, vous devez utiliser un logiciel antivirus.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 11/02/2025 00:00:00
+MaxDownloadSize                 : 81282056
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : http://support.microsoft.com
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 18MB
+Status                          : ADI----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5007651
+X                               : 3
+ChooseResult                    : Accepted
+Result                          : Installed
+DownloadResult                  : Downloaded
+InstallResult                   : Installed
+Title                           : Mise à jour pour Windows Security platform - KB5007651 (version 10.0.27777.1008)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Ce package met à jour Windows Security platform les composants sur l’ordinateur de l’utilisateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 16/04/2025 00:00:00
+MaxDownloadSize                 : 19019184
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://go.microsoft.com/fwlink/?LinkId=52661
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 186MB
+Status                          : ADI----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB2267602
+X                               : 3
+ChooseResult                    : Accepted
+Result                          : Installed
+DownloadResult                  : Downloaded
+InstallResult                   : Installed
+Title                           : Mise à jour de la sélection disjointe pour Microsoft Defender Antivirus – 2267602 Ko (version 1.427.456.0) – Canal actuel (large)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Installer cette mise à jour pour réviser les fichiers utilisés pour détecter les virus, les espiogiciels et autres logiciels potentiellement indésirables.
+                                  Une fois que vous avez installé cet élément, il ne peut pas être supprimé.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       :
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 25/04/2025 00:00:00
+MaxDownloadSize                 : 195446992
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://go.microsoft.com/fwlink/?LinkId=52661
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 1
+DownloadContents                : System.__ComObject
+RebootRequired                  : False
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 0
+AutoDownload                    : 0
+
+Size                            : 143MB
+Status                          : ADR----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5054979
+X                               : 3
+ChooseResult                    : Accepted
+Result                          : Installed
+DownloadResult                  : Downloaded
+InstallResult                   : Installed
+Title                           : 2025-04 Mise à jour cumulative pour .NET Framework 3.5 pour et 4.8.1 pour Windows 11, version 24H2 pour les systèmes x64 (KB5054979)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : False
+DeltaCompressedContentPreferred : True
+Description                     : Installez cette mise à jour pour résoudre des problèmes dans Windows. Pour consulter la liste complète des problèmes résolus par cette mise à jour,
+                                  reportez-vous à l'article correspondant de la Base de connaissances Microsoft. Une fois cette installation terminée, vous serez peut-être amené à
+                                  redémarrer l'ordinateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       : http://schemas.microsoft.com/msus/2016/01/UpdateHandlers/OSInstaller
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 08/04/2025 00:00:00
+MaxDownloadSize                 : 149969239
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://support.microsoft.com/help/5054979
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : True
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 1
+AutoDownload                    : 2
+
+Size                            : 86GB
+Status                          : ADR----
+ComputerName                    : DESKTOP-LPLRTEN
+KB                              : KB5055523
+X                               : 3
+ChooseResult                    : Accepted
+Result                          : Installed
+DownloadResult                  : Downloaded
+InstallResult                   : Installed
+Title                           : 2025-04 Mise à jour cumulative pour Windows 11 Version 24H2 pour les systèmes x64 (KB5055523)
+AutoSelectOnWebSites            : True
+BundledUpdates                  : System.__ComObject
+CanRequireSource                : False
+Categories                      : System.__ComObject
+Deadline                        :
+DeltaCompressedContentAvailable : True
+DeltaCompressedContentPreferred : True
+Description                     : Installez cette mise à jour pour résoudre des problèmes dans Windows. Pour consulter la liste complète des problèmes résolus par cette mise à jour,
+                                  reportez-vous à l'article correspondant de la Base de connaissances Microsoft. Une fois cette installation terminée, vous serez peut-être amené à
+                                  redémarrer l'ordinateur.
+EulaAccepted                    : True
+EulaText                        :
+HandlerID                       : http://schemas.microsoft.com/msus/2016/01/UpdateHandlers/OSInstaller
+Identity                        : System.__ComObject
+Image                           :
+InstallationBehavior            : System.__ComObject
+IsBeta                          : False
+IsDownloaded                    : True
+IsHidden                        : False
+IsInstalled                     : False
+IsMandatory                     : False
+IsUninstallable                 : False
+Languages                       : System.__ComObject
+LastDeploymentChangeTime        : 08/04/2025 00:00:00
+MaxDownloadSize                 : 92346648433
+MinDownloadSize                 : 0
+MoreInfoUrls                    : System.__ComObject
+MsrcSeverity                    :
+RecommendedCpuSpeed             : 0
+RecommendedHardDiskSpace        : 0
+RecommendedMemory               : 0
+ReleaseNotes                    :
+SecurityBulletinIDs             : System.__ComObject
+SupersededUpdateIDs             : System.__ComObject
+SupportUrl                      : https://support.microsoft.com/help/5055523
+Type                            : 1
+UninstallationNotes             :
+UninstallationBehavior          :
+UninstallationSteps             : System.__ComObject
+KBArticleIDs                    : System.__ComObject
+DeploymentAction                : 1
+DownloadPriority                : 2
+DownloadContents                : System.__ComObject
+RebootRequired                  : True
+IsPresent                       : False
+CveIDs                          : System.__ComObject
+BrowseOnly                      : False
+PerUser                         : False
+AutoSelection                   : 1
+AutoDownload                    : 2
+
+**********************
+Fin de la transcription Windows PowerShell
+Heure de fin : 20250425210328
+**********************

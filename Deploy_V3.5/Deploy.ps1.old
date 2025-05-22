@@ -1,0 +1,195 @@
+﻿#Requires -Version 5.1
+<#
+.SYNOPSIS
+Script de préparation et de déploiement PRO v3.7 pour Koesio Aquitaine.
+Intègre corrections critiques (Registre, Chrome, PSUpdate, Bitlocker), sélection logiciels, épinglage.
+
+.DESCRIPTION
+Version PRO avec corrections majeures basées sur logs v3.6 et fallback manuel Chrome.
+Automatise: Nommage, Config système/alim, BitLocker, Installation Choco + Logiciels Base/Optionnels (avec fallback Chrome),
+Config Confidentialité/Optimisation, Outils Fabricant, GoToAssist, Infos OEM, MàJ Windows, Épinglage Tâches, Nettoyage (préserve Logs).
+
+.PARAMETER ComputerName
+Nom spécifique à donner à l'ordinateur.
+
+.PARAMETER UseSerialNumberName
+Utiliser le numéro de série comme nom d'ordinateur.
+
+.PARAMETER SkipBitLockerDecryption
+Ne pas proposer le déchiffrement BitLocker.
+
+.PARAMETER SkipWindowsUpdate
+Ne pas lancer l'installation des mises à jour Windows.
+
+.PARAMETER LogLevel
+Niveau de détail des logs console (INFO | VERBOSE). Défaut: INFO.
+
+.EXAMPLE
+.\Deploy.ps1 -UseSerialNumberName -LogLevel VERBOSE
+
+.NOTES
+Version: 3.7.2025 (PRO + Optional + Pinning + Critical Fixes)
+Auteur: Quentin Chaillou // Quentin.chaillou@koesio.fr
+Date: 2025-04-25
+Requires: PowerShell 5.1+, Internet. Exécuter en admin.
+IMPORTANT: Enregistrer ce fichier en UTF-8 avec BOM pour gérer les accents correctement.
+L'épinglage à la barre des tâches est expérimental.
+L'installation d'Office nécessite une licence/activation post-installation.
+Chrome utilise un fallback manuel si Choco échoue.
+Correction majeure Set-RegValue, PSWindowsUpdate, Bitlocker Mountpoint.
+#>
+
+[CmdletBinding(SupportsShouldProcess=$true)]
+param(
+    [Parameter(HelpMessage = "Nom spécifique pour l'ordinateur")]
+    [string]$ComputerName,
+    [Parameter(HelpMessage = "Utiliser le numéro de série comme nom")]
+    [switch]$UseSerialNumberName,
+    [Parameter(HelpMessage = "Ne pas proposer le déchiffrement BitLocker")]
+    [switch]$SkipBitLockerDecryption,
+    [Parameter(HelpMessage = "Passer l'étape des mises à jour Windows")]
+    [switch]$SkipWindowsUpdate,
+    [Parameter(HelpMessage = "Niveau de détail des logs console (INFO | VERBOSE)")]
+    [ValidateSet('INFO', 'VERBOSE')]
+    [string]$LogLevel = 'INFO'
+)
+
+#region Global Variables and Initial Setup
+$ScriptVersion = "3.7.2025"
+$CompanyName = "Koesio Aquitaine"
+$SupportInfo = @{ Manufacturer = $CompanyName; SupportHours = "08H30 - 12H30 | 14H00 - 17H30"; SupportPhone = "05 57 51 52 52 - 1A Avenue Bernard Moitessier, 17180 Périgny"; SupportURL   = "https://www.koesio.com/" }
+if ($PSScriptRoot -eq $null) { $PSScriptRoot = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition }
+$DataPath = Join-Path -Path $PSScriptRoot -ChildPath "Data"; $LogPath = Join-Path -Path $PSScriptRoot -ChildPath "Logs"; $Script:EffectiveLogLevel = $LogLevel
+if (-not (Test-Path -Path $LogPath)) { New-Item -Path $LogPath -ItemType Directory -Force | Out-Null }
+$LogFile = Join-Path -Path $LogPath -ChildPath "Deploy_$(Get-Date -Format 'yyyyMMdd_HHmmss').log"
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+Start-Transcript -Path $LogFile -Append
+
+# --- Fonctions Utilitaires ---
+Function Write-Log { param([Parameter(Mandatory=$true)][string]$Message, [string]$Level = "INFO", [ConsoleColor]$ForegroundColor = $Host.UI.RawUI.ForegroundColor, [ConsoleColor]$BackgroundColor = $Host.UI.RawUI.BackgroundColor); $Timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'; $FormattedMessage = "[$Timestamp] [$Level] $Message"; $ShouldWriteToHost = $false; switch ($Script:EffectiveLogLevel) { 'VERBOSE' { $ShouldWriteToHost = $true }; 'INFO' { if ($Level -in ('INFO', 'STEP', 'SUCCESS', 'WARN', 'ERROR')) { $ShouldWriteToHost = $true } } }; if ($ShouldWriteToHost) { if ($PSBoundParameters.ContainsKey('ForegroundColor') -or $PSBoundParameters.ContainsKey('BackgroundColor')) { Write-Host $FormattedMessage -ForegroundColor $ForegroundColor -BackgroundColor $BackgroundColor } else { switch ($Level) { "VERBOSE" { Write-Host $FormattedMessage -ForegroundColor Gray }; "INFO" { Write-Host $FormattedMessage }; "STEP" { Write-Host $FormattedMessage -ForegroundColor Cyan }; "SUCCESS" { Write-Host $FormattedMessage -ForegroundColor Green }; "WARN" { Write-Host $FormattedMessage -ForegroundColor Yellow }; "ERROR" { Write-Host $FormattedMessage -ForegroundColor Red }; default { Write-Host $FormattedMessage } } } } }
+Function Show-Banner { param([string]$CurrentStep = "Initialisation"); Clear-Host; $Line = " " * 79; Write-Host -Object $Line -ForegroundColor Black -BackgroundColor Green; Write-Host -Object "         PROGRAMME DE PREPARATION DE POSTE $CompanyName (PRO)         " -ForegroundColor Black -BackgroundColor Green; Write-Host -Object "                            Version $ScriptVersion                           " -ForegroundColor Black -BackgroundColor Green; Write-Host -Object "                            Étape : $CurrentStep                            " -ForegroundColor Black -BackgroundColor Green; Write-Host -Object $Line -ForegroundColor Black -BackgroundColor Green; Write-Host ""; Write-Log -Level "STEP" -Message "Début de l'étape : $CurrentStep" }
+Function Check-Admin { Write-Log -Level "INFO" -Message "Vérification droits administrateur..."; if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { Write-Log -Level "ERROR" -Message "Script nécessite privilèges admin."; Stop-Transcript; Exit 1 }; Write-Log -Level "SUCCESS" -Message "Droits admin confirmés." }
+Function New-ShortcutHelper { param([parameter(Mandatory=$true)][string]$ShortcutFullName,[parameter(Mandatory=$true)][string]$ShortcutTarget,[string]$WorkingDirectory,[string]$IconLocation,[string]$Description); try { Write-Log -Level "VERBOSE" -Message "Création raccourci '$ShortcutFullName' -> '$ShortcutTarget'"; $WScriptShell = New-Object -ComObject WScript.Shell; $Shortcut = $WScriptShell.CreateShortcut($ShortcutFullName); $Shortcut.TargetPath = $ShortcutTarget; if ($WorkingDirectory) { $Shortcut.WorkingDirectory = $WorkingDirectory }; if ($IconLocation) { $Shortcut.IconLocation = $IconLocation }; if ($Description) { $Shortcut.Description = $Description }; $Shortcut.Save(); Write-Log -Level "INFO" -Message "Raccourci créé : $(Split-Path $ShortcutFullName -Leaf)"; return $true } catch { Write-Log -Level "ERROR" -Message "Erreur création raccourci '$ShortcutFullName'. Erreur: $($_.Exception.Message)"; return $false } }
+Function Start-SilentProcess { param([Parameter(Mandatory=$true)][string]$FilePath,[string]$Arguments,[string]$LogId); Write-Log -Level "INFO" -Message "Lancement install ($LogId): $(Split-Path $FilePath -Leaf) $Arguments"; if (-not (Test-Path -Path $FilePath)) { Write-Log -Level "ERROR" -Message "Fichier introuvable: $FilePath"; return $false }; try { $Process = Start-Process -FilePath $FilePath -ArgumentList $Arguments -Wait -PassThru -ErrorAction Stop; if ($Process.ExitCode -ne 0) { Write-Log -Level "WARN" -Message "Install ($LogId) terminée (Code: $($Process.ExitCode))."; return $false } else { Write-Log -Level "SUCCESS" -Message "Install ($LogId) terminée (Code: 0)."; return $true } } catch { Write-Log -Level "ERROR" -Message "Erreur lancement install ($LogId). Erreur: $($_.Exception.Message)"; return $false } }
+# Correction V3.7: Utilisation de -PropertyType au lieu de -Type
+Function Set-RegValue { param([Parameter(Mandatory=$true)][string]$Path,[Parameter(Mandatory=$true)][string]$Name,[Parameter(Mandatory=$true)]$Value,[string]$RegType = 'DWORD'); try { Write-Log -Level "VERBOSE" -Message "Registre: '$Path' -> '$Name' = '$Value' (Type: $RegType)"; if (-not (Test-Path -Path $Path)) { New-Item -Path $Path -Force -ErrorAction Stop | Out-Null; Write-Log -Level "VERBOSE" -Message "Chemin registre créé: $Path" }; Set-ItemProperty -Path $Path -Name $Name -Value $Value -PropertyType $RegType -Force -ErrorAction Stop; return $true } catch { Write-Log -Level "WARN" -Message "Erreur clé registre '$Name' dans '$Path'. Erreur: $($_.Exception.Message)"; return $false } }
+Function Pin-ToTaskbar { param([Parameter(Mandatory=$true)][string]$ShortcutPath, [Parameter(Mandatory=$true)][string]$ItemName); Write-Log -Level "INFO" -Message "Tentative épinglage barre des tâches : $ItemName"; if (-not (Test-Path $ShortcutPath)) { Write-Log -Level "WARN" -Message "Raccourci introuvable pour épinglage: $ShortcutPath"; return $false }; try { $Shell = New-Object -ComObject "Shell.Application"; $Folder = $Shell.Namespace((Split-Path $ShortcutPath)); $Item = $Folder.ParseName((Split-Path $ShortcutPath -Leaf)); $PinVerb = $Item.Verbs() | Where-Object { $_.Name -eq 'Épingler à la barre des tâches' }; if ($PinVerb) { Write-Log -Level "VERBOSE" -Message "Invocation verbe '$($PinVerb.Name)' pour $ItemName"; $PinVerb.DoIt(); Write-Log -Level "SUCCESS" -Message "$ItemName épinglé (ou déjà épinglé)."; return $true } else { Write-Log -Level "WARN" -Message "Verbe 'Épingler à la barre des tâches' non trouvé pour $ItemName (Langue OS?)."; return $false } } catch { Write-Log -Level "ERROR" -Message "Erreur épinglage $ItemName. Erreur: $($_.Exception.Message)"; Write-Log -Level "WARN" -Message "Épinglage auto est instable."; return $false } }
+#endregion
+
+#region Main Script Logic
+
+# --- 1. Initial Checks & Banner ---
+Check-Admin; Show-Banner -CurrentStep "Vérifications initiales"; Write-Log -Level "INFO" -Message "Script déploiement Koesio v$ScriptVersion (PRO) démarré."
+
+# --- 2. Computer Naming ---
+Show-Banner -CurrentStep "Configuration nom PC"; $ComputerInfo = Get-CimInstance Win32_ComputerSystem; $BiosInfo = Get-CimInstance Win32_BIOS; $SerialNumber = $BiosInfo.SerialNumber.Trim(); $Manufacturer = $BiosInfo.Manufacturer.Trim(); $CurrentName = $ComputerInfo.Name; Write-Log -Level "INFO" -Message "Actuel: $CurrentName | Fabricant: $Manufacturer | S/N: $SerialNumber"; $NewName = $null; $RenameNeeded = $false; if ($UseSerialNumberName) { if ($CurrentName -ne $SerialNumber) { $NewName = $SerialNumber; $RenameNeeded = $true; Write-Log -Level "INFO" -Message "Utilisation S/N demandé. Nouveau nom: $NewName" } else { Write-Log -Level "INFO" -Message "Nom actuel = S/N." } } elseif (-not [string]::IsNullOrWhiteSpace($ComputerName)) { if ($CurrentName -ne $ComputerName) { $NewName = $ComputerName; $RenameNeeded = $true; Write-Log -Level "INFO" -Message "Nom fourni. Nouveau nom: $NewName" } else { Write-Log -Level "INFO" -Message "Nom actuel = Nom fourni." } } else { $PromptTitle = "Nom PC"; $PromptMsg = "Utiliser S/N '$SerialNumber' comme nom? (O/N)"; $Choices = [System.Management.Automation.Host.ChoiceDescription[]]@('&Oui', '&Non'); if (($Host.UI.PromptForChoice($PromptTitle, $PromptMsg, $Choices, 0)) -eq 0) { if ($CurrentName -ne $SerialNumber) { $NewName = $SerialNumber; $RenameNeeded = $true } } else { do { $CustomName = Read-Host "Entrez nom souhaité (vide pour garder '$CurrentName')"; if ([string]::IsNullOrWhiteSpace($CustomName)) { $RenameNeeded = $false; break }; elseif ($CustomName -match '^[a-zA-Z0-9-]{1,63}$') { if ($CurrentName -ne $CustomName) { $NewName = $CustomName; $RenameNeeded = $true; break } else { $RenameNeeded = $false; break } } else { Write-Log -Level "WARN" -Message "Nom invalide." } } while ($true) } }; if ($RenameNeeded -and $NewName) { Write-Log -Level "INFO" -Message "Renommage vers '$NewName'..."; try { if ($PSCmdlet.ShouldProcess($CurrentName, "Renommer en '$NewName'")) { Rename-Computer -NewName $NewName -Force -ErrorAction Stop; Write-Log -Level "SUCCESS" -Message "Renommage réussi. Redémarrage nécessaire." } else { Write-Log -Level "INFO" -Message "Renommage annulé (-WhatIf)." } } catch { Write-Log -Level "ERROR" -Message "Échec renommage. Erreur: $($_.Exception.Message)" } } else { Write-Log -Level "INFO" -Message "Aucun renommage nécessaire." }
+
+# --- 3. Basic System Configuration ---
+Show-Banner -CurrentStep "Configuration Système Base"; Write-Log -Level "INFO" -Message "Config icônes bureau, NumLock, alim, nettoyage bureau..."; $IconPaths = @("HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel", "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu"); $Icons = @{ "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" = 0; "{59031a47-3f72-44a7-89c5-5595fe6b30ee}" = 0 }; foreach ($path in $IconPaths) { if (-not (Test-Path $path)) { New-Item -Path $path -Force | Out-Null }; foreach ($guid in $Icons.Keys) { Set-RegValue -Path $path -Name $guid -Value $Icons[$guid] -RegType DWORD } }; Set-RegValue -Path "Registry::HKEY_USERS\.DEFAULT\Control Panel\Keyboard" -Name "InitialKeyboardIndicators" -Value "2" -RegType String; Write-Log -Level "INFO" -Message "Alim: Écran 60min, Disque Jamais, Veille Jamais, Démarrage Rapide OFF"; try { powercfg /change monitor-timeout-ac 60; powercfg /change monitor-timeout-dc 60; powercfg /change disk-timeout-ac 0; powercfg /change disk-timeout-dc 0; powercfg /change standby-timeout-ac 0; powercfg /change standby-timeout-dc 0; Set-RegValue -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power" -Name "HiberbootEnabled" -Value 0 -RegType DWORD; Write-Log -Level "SUCCESS" -Message "Params alim & démarrage rapide configurés." } catch { Write-Log -Level "WARN" -Message "Échec config alim/démarrage rapide. Erreur: $($_.Exception.Message)" }; Write-Log -Level "INFO" -Message "Nettoyage raccourcis bureau..."; Remove-Item "$env:PUBLIC\Desktop\Microsoft Edge.lnk" -ErrorAction SilentlyContinue -Force; Remove-Item "$env:USERPROFILE\Desktop\Microsoft Edge.lnk" -ErrorAction SilentlyContinue -Force; Write-Log -Level "SUCCESS" -Message "Config système base terminée."
+
+# --- 4. BitLocker Management ---
+Show-Banner -CurrentStep "Gestion BitLocker"; $BitlockerVolumes = Get-BitLockerVolume -ErrorAction SilentlyContinue; if ($BitlockerVolumes) { foreach ($Volume in $BitlockerVolumes) { Write-Log -Level "INFO" -Message "Volume $($Volume.MountPoint) - Statut: $($Volume.VolumeStatus)"; if ($Volume.VolumeStatus -match "Encrypted|EncryptionInProgress") { Write-Log -Level "WARN" -Message "Volume $($Volume.MountPoint) chiffré."; Write-Log -Level "INFO" -Message "Récupération clé..."; try { $RecoveryProtector = (Get-BitLockerVolume -MountPoint $Volume.MountPoint).KeyProtector | Where-Object {$_.KeyProtectorType -eq 'RecoveryPassword'} | Select-Object -First 1; if ($RecoveryProtector) { Write-Host "`n`n--- CLÉ BITLOCKER $($Volume.MountPoint) ---`nSAUVEGARDER CETTE CLÉ MAINTENANT !\nClé : $($RecoveryProtector.RecoveryPassword)\n---`n`n" -BackgroundColor Black -ForegroundColor Yellow; Read-Host "Appuyez sur ENTRÉE UNIQUEMENT après avoir sauvegardé cette clé"; Write-Log -Level "SUCCESS" -Message "Clé affichée. Confirmation utilisateur." } else { Write-Log -Level "WARN" -Message "Clé récupération numérique introuvable." } } catch { Write-Log -Level "ERROR" -Message "Erreur récupération clé BitLocker. Erreur: $($_.Exception.Message)" }; if (-not $SkipBitLockerDecryption -and $Volume.VolumeStatus -ne "FullyDecrypted") { $PromptTitle = "Déchiffrement BitLocker"; $PromptMsg = "Volume $($Volume.MountPoint) chiffré. Lancer déchiffrement permanent ?"; $Choices = [System.Management.Automation.Host.ChoiceDescription[]]@('&Oui', '&Non'); if (($Host.UI.PromptForChoice($PromptTitle, $PromptMsg, $Choices, 0)) -eq 0) { Write-Log -Level "INFO" -Message "Lancement déchiffrement permanent..."; try { if ($PSCmdlet.ShouldProcess($Volume.MountPoint, "Désactiver BitLocker (permanent)")) { $CurrentMountPoint = $Volume.MountPoint; Write-Log -Level "VERBOSE" -Message "Suppression clés auto-déverrouillage pour $CurrentMountPoint..."; Clear-BitLockerAutoUnlock -MountPoint $CurrentMountPoint -ErrorAction SilentlyContinue; Write-Log -Level "VERBOSE" -Message "Appel Disable-Bitlocker pour $CurrentMountPoint..."; Disable-BitLocker -MountPoint $CurrentMountPoint -ErrorAction Stop; Write-Log -Level "SUCCESS" -Message "Déchiffrement démarré (permanent)." } else { Write-Log -Level "INFO" -Message "Déchiffrement annulé (-WhatIf)." } } catch { Write-Log -Level "ERROR" -Message "Erreur désactivation BitLocker pour $($Volume.MountPoint). Erreur: $($_.Exception.Message)" } } else { Write-Log -Level "INFO" -Message "Déchiffrement ignoré." } } else { Write-Log -Level "INFO" -Message "Déchiffrement non proposé." } } elseif ($Volume.VolumeStatus -eq "FullyDecrypted") { Write-Log -Level "INFO" -Message "Volume $($Volume.MountPoint) déjà déchiffré." } else { Write-Log -Level "WARN" -Message "Statut BitLocker non géré: $($Volume.VolumeStatus)" } } } else { Write-Log -Level "INFO" -Message "Aucun volume BitLocker détecté." }
+
+# --- 5. Software Installation via Chocolatey (Base) ---
+Show-Banner -CurrentStep "Installation Logiciels Base (Choco)"; Write-Log -Level "INFO" -Message "Vérification/Installation Chocolatey..."; if (-not (Get-Command choco -ErrorAction SilentlyContinue)) { Write-Log -Level "INFO" -Message "Installation Chocolatey..."; try { Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User"); if (Get-Command choco -ErrorAction SilentlyContinue) { Write-Log -Level "SUCCESS" -Message "Chocolatey installé." } else { Throw "Échec install/détection Choco." } } catch { Write-Log -Level "ERROR" -Message "Échec installation Choco. Erreur: $($_.Exception.Message)" } } else { Write-Log -Level "SUCCESS" -Message "Chocolatey déjà installé." }
+
+if (Get-Command choco -ErrorAction SilentlyContinue) {
+    $ChocoPackagesMandatory = @( "firefox", "googlechrome", "adobereader", "7zip.install", "teamviewer", "openjdk", "dotnetfx" )
+    Write-Log -Level "INFO" -Message "Installation paquets BASE requis: $($ChocoPackagesMandatory -join ', ')"; foreach ($pkg in $ChocoPackagesMandatory) { Write-Log -Level "INFO" -Message "Installation $pkg..."; if (choco list --local-only --exact $pkg -r) { Write-Log -Level "INFO" -Message "$pkg déjà installé." } else {
+            $chocoInstallSucceeded = $false; $errorMessage = ''; $exitCode = 0; $errorOutput = ''; Clear-Variable -Name error -ErrorAction SilentlyContinue # Clear PowerShell $Error
+            # --- Tentative 1: Choco normal ---
+            Write-Log -Level "VERBOSE" -Message "Tentative 1: choco install $pkg..."
+            choco install $pkg -y --accept-licenses --no-progress -r --execution-timeout 1800 *>&1 | Tee-Object -Variable chocoOutput | Out-Null # Capture all output streams
+            $exitCode = $LASTEXITCODE
+            $errorOutput = ($chocoOutput | Where-Object {$_ -is [System.Management.Automation.ErrorRecord]}) -join "`n" # Get PS errors if any
+
+            if ($exitCode -eq 0) { $chocoInstallSucceeded = $true }
+            else { $errorMessage = "ExitCode: $exitCode. Error Output: $errorOutput" ; Write-Log -Level "WARN" -Message "Échec install $pkg (Tentative 1). $errorMessage" }
+
+            # --- Tentative 2: Choco avec --ignore-checksums (si échec 1 ET erreur checksum) ---
+            if (-not $chocoInstallSucceeded -and ($errorMessage -like "*Checksum*" -or $errorMessage -like "*hashes do not match*")) {
+                Write-Log -Level "WARN" -Message "Erreur Checksum détectée pour $pkg. Tentative 2 avec --ignore-checksums..."; Clear-Variable -Name error -ErrorAction SilentlyContinue; $errorOutput = ''
+                choco install $pkg -y --accept-licenses --no-progress -r --execution-timeout 1800 --ignore-checksums *>&1 | Tee-Object -Variable chocoOutput | Out-Null
+                $exitCode = $LASTEXITCODE
+                $errorOutput = ($chocoOutput | Where-Object {$_ -is [System.Management.Automation.ErrorRecord]}) -join "`n"
+
+                if ($exitCode -eq 0) { Write-Log -Level "SUCCESS" -Message "$pkg installé (Tentative 2: --ignore-checksums)."; $chocoInstallSucceeded = $true }
+                else { $errorMessage = "ExitCode: $exitCode. Error Output: $errorOutput"; Write-Log -Level "ERROR" -Message "Échec install $pkg (Tentative 2). Erreur: $errorMessage" }
+            }
+
+            # --- Tentative 3 (Fallback Manuel pour Chrome UNIQUEMENT) ---
+            if (-not $chocoInstallSucceeded -and $pkg -eq "googlechrome") {
+                Write-Log -Level "WARN" -Message "Échec Choco pour Chrome. Tentative 3: Téléchargement Manuel + MSIExec..."; $chromeUrl = "https://dl.google.com/tag/s/dl/chrome/install/googlechromestandaloneenterprise64.msi"; $tempPath = Join-Path $env:TEMP "googlechromestandaloneenterprise64.msi"
+                try { Write-Log -Level "VERBOSE" -Message "Téléchargement Chrome depuis $chromeUrl ..."; Invoke-WebRequest -Uri $chromeUrl -OutFile $tempPath -UseBasicParsing -ErrorAction Stop; Write-Log -Level "VERBOSE" -Message "Téléchargement terminé. Lancement MSIExec..."; $msiArgs = "/i `"$tempPath`" /qn /norestart"; $installResult = Start-SilentProcess -FilePath "msiexec.exe" -Arguments $msiArgs -LogId "ChromeMSI"; if ($installResult) { $chocoInstallSucceeded = $true; Write-Log -Level "SUCCESS" -Message "Chrome installé via MSI manuel." } else { Write-Log -Level "ERROR" -Message "Échec install Chrome via MSI."} } catch { Write-Log -Level "ERROR" -Message "Erreur fallback Chrome. Erreur: $($_.Exception.Message)" } finally { if (Test-Path $tempPath) { Write-Log -Level "VERBOSE" -Message "Nettoyage MSI Chrome..."; Remove-Item $tempPath -Force -ErrorAction SilentlyContinue } }
+            }
+
+            # Log final
+            if ($chocoInstallSucceeded -and $pkg -ne 'googlechrome') { Write-Log -Level "SUCCESS" -Message "$pkg installé." }
+            elseif (-not $chocoInstallSucceeded) { Write-Log -Level "ERROR" -Message "Échec final install $pkg." }
+    } }; Write-Log -Level "SUCCESS" -Message "Installation logiciels BASE terminée."
+
+    # --- 5b. Optional Software Installation via Chocolatey ---
+    Show-Banner -CurrentStep "Sélection Logiciels Optionnels"; $OptionalSoftware = @{ 1 = @{ N="Microsoft 365 Business"; ID="office365business"; P=7200; Note="Licence M365 requise."}; 2 = @{ N="Office 2019 Pro Plus"; ID="office2019professionalplus"; P=7200; Note="Licence Volume requise."}; 3 = @{ N="Office 2019 Famille/PME"; ID="office2019homebusiness"; P=7200; Note="Licence Retail requise."}; 4 = @{ N="Office 2021 Pro Plus"; ID="office2021professionalplus"; P=7200; Note="Licence Volume requise."}; 5 = @{ N="Office 2021 Famille/PME"; ID="office2021homebusiness"; P=7200; Note="Licence Retail requise."}; 6 = @{ N="OpenVPN Connect"; ID="openvpn"; P=1800; Note=""}; 7 = @{ N="FortiClient VPN"; ID="forticlientvpn"; P=1800; Note=""}; 8 = @{ N="VLC Media Player"; ID="vlc"; P=1800; Note=""} }; Write-Host "`n--- Logiciels Optionnels Disponibles ---" -ForegroundColor Cyan; foreach ($num in ($OptionalSoftware.Keys | Sort-Object)) { $sw = $OptionalSoftware[$num]; Write-Host (" ") -NoNewline; Write-Host $num -ForegroundColor Magenta -NoNewline; Write-Host ". " -NoNewline; Write-Host $sw.N -ForegroundColor Yellow -NoNewline; if ($sw.Note) { Write-Host (" ({0})" -f $sw.Note) -ForegroundColor Gray } else { Write-Host "" } }; Write-Host "---------------------------------------" -ForegroundColor Cyan
+    $UserInput = Read-Host "`nEntrez les numéros (séparés par virgule), ou laissez vide pour ignorer"; $SelectedPackagesInfo = @(); if (-not [string]::IsNullOrWhiteSpace($UserInput)) { $Selections = $UserInput.Split(',') | ForEach-Object { $_.Trim() }; foreach ($sel in $Selections) { if ($sel -match '^\d+$' -and $OptionalSoftware.ContainsKey([int]$sel)) { $pkgInfo = $OptionalSoftware[[int]$sel]; Write-Log -Level "INFO" -Message "Sélectionné: $($pkgInfo.N)"; $alreadySelected = $false; foreach($p in $SelectedPackagesInfo){if($p.ID -eq $pkgInfo.ID){$alreadySelected = $true; break}}; if(-not $alreadySelected){ $SelectedPackagesInfo += $pkgInfo } } else { Write-Log -Level "WARN" -Message "Numéro invalide ignoré: '$sel'" } } }
+    if ($SelectedPackagesInfo.Count -gt 0) { Write-Log -Level "INFO" -Message "Installation logiciels OPTIONNELS..."; foreach ($pkgInfo in $SelectedPackagesInfo) { Write-Log -Level "INFO" -Message "Installation $($pkgInfo.N) (ID: $($pkgInfo.ID))..."; if (choco list --local-only --exact $pkgInfo.ID -r) { Write-Log -Level "INFO" -Message "$($pkgInfo.ID) déjà installé." } else { $chocoInstallSucceeded = $false; try { choco install $pkgInfo.ID -y --accept-licenses --no-progress -r --execution-timeout $pkgInfo.P; $chocoInstallSucceeded = $true } catch { Write-Log -Level "ERROR" -Message "Échec install $($pkgInfo.ID). Erreur: $($_.Exception.Message)" }; if ($chocoInstallSucceeded) { Write-Log -Level "SUCCESS" -Message "$($pkgInfo.ID) installé." } } }; Write-Log -Level "SUCCESS" -Message "Installation logiciels OPTIONNELS terminée." } else { Write-Log -Level "INFO" -Message "Aucun logiciel optionnel sélectionné." }
+
+} else { Write-Log -Level "WARN" -Message "Chocolatey indisponible, installations logicielles ignorées." }
+
+# --- 6. Privacy, Gaming & OS Optimization ---
+Show-Banner -CurrentStep "Config Confidentialité & Optimisation"; Write-Log -Level "INFO" -Message "Application paramètres confidentialité, jeux, optimisation..."; Set-RegValue -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name "Enabled" -Value 0; Set-RegValue -Path "HKCU\Control Panel\International\User Profile" -Name "HttpAcceptLanguageOptOut" -Value 1; Set-RegValue -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Privacy" -Name "Start_TrackProgs" -Value 0; Set-RegValue -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-338389Enabled" -Value 0; Set-RegValue -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name "SubscribedContent-310093Enabled" -Value 0; Set-RegValue -Path "HKCU\Software\Microsoft\GameBar" -Name "AllowAutoGameMode" -Value 0; Set-RegValue -Path "HKCU\Software\Microsoft\GameBar" -Name "UseNexusToolbar" -Value 0; Set-RegValue -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name "AppCaptureEnabled" -Value 0; Write-Log -Level "INFO" -Message "Activation MàJ autres produits Microsoft..."; try { $ServiceManager = New-Object -ComObject "Microsoft.Update.ServiceManager" -ErrorAction Stop; $ServiceRegistered = $false; try { $ServiceManager.Services | ForEach-Object { if ($_.ServiceID -eq "7971f918-a847-4430-9279-4a52d1efe18d" -and $_.IsRegisteredWithAU) { $ServiceRegistered = $true } } } catch {}; if (-not $ServiceRegistered) { Write-Log -Level "VERBOSE" -Message "Enregistrement service Microsoft Update..."; $ServiceManager.AddService2("7971f918-a847-4430-9279-4a52d1efe18d", 7, ""); Write-Log -Level "SUCCESS" -Message "Service Microsoft Update enregistré." } else { Write-Log -Level "INFO" -Message "Service Microsoft Update déjà enregistré." } } catch { Write-Log -Level "WARN" -Message "Impossible activer MàJ autres produits via COM. Erreur: $($_.Exception.Message)" }; Write-Log -Level "INFO" -Message "Désactivation Delivery Optimization (P2P)..."; Set-RegValue -Path "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Value 0; Write-Log -Level "INFO" -Message "Désactivation OneDrive, Edge, Copilot au démarrage..."; Remove-ItemProperty -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" -Name "OneDrive" -ErrorAction SilentlyContinue -Force; Set-RegValue -Path "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Name "DisableFileSyncNGSC" -Value 1 -RegType DWORD; Set-RegValue -Path "HKLM\SOFTWARE\Policies\Microsoft\Edge" -Name "StartupBoostEnabled" -Value 0 -RegType DWORD; Set-RegValue -Path "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCopilotButton" -Value 0 -RegType DWORD; Write-Log -Level "SUCCESS" -Message "Config Confidentialité & Optimisation terminée."
+
+# --- 7. Manufacturer Tools Installation ---
+Show-Banner -CurrentStep "Install Outils Fabricant"; $DataPathFound = Test-Path $DataPath; if ($DataPathFound) { if ($Manufacturer -like "*Dell*") { Start-SilentProcess -FilePath (Join-Path $DataPath "DellCommandUpdate.exe") -Arguments "/s /norestart" -LogId "DellCU" } elseif ($Manufacturer -like "*HP*" -or $Manufacturer -like "*Hewlett-Packard*") { Start-SilentProcess -FilePath (Join-Path $DataPath "sp138267.exe") -Arguments "/s /norestart" -LogId "HPSA" } else { Write-Log -Level "INFO" -Message "Fabricant non géré ($Manufacturer)." } } else { Write-Log -Level "WARN" -Message "Dossier Data introuvable. Outils fabricant ignorés." }
+
+# --- 8. Specific PRO Software (GoToAssist) ---
+Show-Banner -CurrentStep "Install Logiciel PRO (GoToAssist)"; $GoToAssistSource = Join-Path $DataPath "GoToAssist.exe"; $GoToAssistTargetDir = Join-Path $env:ProgramFiles "GoToAssist"; $GoToAssistTargetExe = Join-Path $GoToAssistTargetDir "GoToAssist.exe"; if (Test-Path $GoToAssistSource) { try { if (-not (Test-Path $GoToAssistTargetDir)) { New-Item -Path $GoToAssistTargetDir -ItemType Directory -Force | Out-Null }; Copy-Item $GoToAssistSource $GoToAssistTargetDir -Force -ErrorAction Stop; Write-Log -Level "SUCCESS" -Message "GoToAssist.exe copié."; $PublicDesktop = [Environment]::GetFolderPath('CommonDesktopDirectory'); $PublicStartMenu = [Environment]::GetFolderPath('CommonPrograms'); New-ShortcutHelper -ShortcutFullName (Join-Path $PublicDesktop "GoToAssist.lnk") -ShortcutTarget $GoToAssistTargetExe; New-ShortcutHelper -ShortcutFullName (Join-Path $PublicStartMenu "GoToAssist.lnk") -ShortcutTarget $GoToAssistTargetExe } catch { Write-Log -Level "ERROR" -Message "Échec install GoToAssist. Erreur: $($_.Exception.Message)" } } else { Write-Log -Level "WARN" -Message "GoToAssist.exe introuvable dans $DataPath." }
+
+# --- 9. OEM Information ---
+Show-Banner -CurrentStep "Config Infos OEM"; Write-Log -Level "INFO" -Message "Définition infos OEM..."; $OemInfoPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation"; try { if (-not (Test-Path $OemInfoPath)) { New-Item -Path $OemInfoPath -Force | Out-Null }; foreach ($key in $SupportInfo.Keys) { Set-RegValue -Path $OemInfoPath -Name $key -Value $SupportInfo[$key] -RegType String }; Write-Log -Level "SUCCESS" -Message "Infos OEM définies." } catch { Write-Log -Level "WARN" -Message "Impossible définir infos OEM. Erreur: $($_.Exception.Message)" }
+
+# --- 10. Create Common Shortcuts & Pinning ---
+Show-Banner -CurrentStep "Création Raccourcis & Épinglage"; Write-Log -Level "INFO" -Message "Création raccourci Adobe Acrobat Reader bureau public..."
+# Correction V3.7: Cherche Acrobat.exe puis AcroRd32.exe dans les 2 Program Files
+$AdobeExePathsToTry = @(
+    (Join-Path $env:ProgramFiles "Adobe\Acrobat DC\Acrobat\Acrobat.exe"), # Chemin DC 64bit
+    (Join-Path ${env:ProgramFiles(x86)} "Adobe\Acrobat DC\Acrobat\Acrobat.exe"), # Chemin DC 32bit
+    (Join-Path $env:ProgramFiles "Adobe\Acrobat Reader DC\Reader\AcroRd32.exe"), # Chemin Reader 64bit (moins probable)
+    (Join-Path ${env:ProgramFiles(x86)} "Adobe\Acrobat Reader DC\Reader\AcroRd32.exe") # Chemin Reader 32bit
+)
+$AdobeReaderExePath = $AdobeExePathsToTry | Where-Object { Test-Path $_ } | Select-Object -First 1
+$PublicDesktop = [Environment]::GetFolderPath('CommonDesktopDirectory'); $AdobeShortcutPath = Join-Path $PublicDesktop "Adobe Acrobat Reader DC.lnk"
+if ($AdobeReaderExePath) { Write-Log -Level "VERBOSE" -Message "Chemin Adobe trouvé: $AdobeReaderExePath"; New-ShortcutHelper -ShortcutFullName $AdobeShortcutPath -ShortcutTarget $AdobeReaderExePath }
+else { Write-Log -Level "WARN" -Message "Exécutable Adobe Acrobat/Reader introuvable. Raccourci bureau non créé." }
+
+# Épinglage (Expérimental V3.7) - Recherche améliorée des raccourcis
+$CommonStartMenu = [Environment]::GetFolderPath('CommonPrograms'); $AllUsersStartMenu = "$env:ProgramData\Microsoft\Windows\Start Menu\Programs"
+$CurrentUserStartMenu = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs"
+$ShortcutSearchPaths = $CommonStartMenu, $AllUsersStartMenu, $CurrentUserStartMenu
+Write-Log -Level "VERBOSE" -Message "Recherche raccourcis pour épinglage dans: $($ShortcutSearchPaths -join ', ')"
+$ChromeShortcut = Get-ChildItem -Path $ShortcutSearchPaths -Recurse -Filter "Google Chrome.lnk" -ErrorAction SilentlyContinue | Select-Object -First 1
+$AcrobatShortcut = Get-ChildItem -Path $ShortcutSearchPaths -Recurse -Filter "Adobe*.lnk" -ErrorAction SilentlyContinue | Where-Object {$_.Name -like "*Acrobat*Reader*" -or $_.Name -like "*Acrobat DC*"} | Select-Object -First 1
+
+if ($ChromeShortcut) { Pin-ToTaskbar -ShortcutPath $ChromeShortcut.FullName -ItemName "Google Chrome" } else { Write-Log -Level "WARN" -Message "Raccourci Chrome non trouvé pour épinglage." }
+if ($AcrobatShortcut) { Pin-ToTaskbar -ShortcutPath $AcrobatShortcut.FullName -ItemName "Adobe Acrobat Reader" } else { Write-Log -Level "WARN" -Message "Raccourci Acrobat non trouvé pour épinglage." }
+Write-Log -Level "SUCCESS" -Message "Création raccourcis & tentatives épinglage terminées."
+
+# --- 11. Windows Updates ---
+Show-Banner -CurrentStep "Mises à jour Windows"; $RebootRequiredByUpdate = $false
+if (-not $SkipWindowsUpdate) { Write-Log -Level "INFO" -Message "Préparation MàJ Windows..."; $PSWindowsUpdateModuleLoaded = $false
+    try {
+        # V3.7: Séquence corrigée pour PS 5.1
+        Write-Log -Level "VERBOSE" -Message "Vérification/Installation Provider NuGet..."; Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force -Confirm:$false -ErrorAction Stop
+        Write-Log -Level "VERBOSE" -Message "Vérification/Installation module PSWindowsUpdate (-Force)..."; Install-Module PSWindowsUpdate -Force -Confirm:$false -ErrorAction Stop # -Force gère réinstall et acceptation
+        Write-Log -Level "VERBOSE" -Message "Tentative importation PSWindowsUpdate..."; Import-Module PSWindowsUpdate -Force -ErrorAction Stop
+        if (Get-Command Install-WindowsUpdate -ErrorAction SilentlyContinue) { Write-Log -Level "SUCCESS" -Message "Module PSWindowsUpdate chargé."; $PSWindowsUpdateModuleLoaded = $true } else { Write-Log -Level "WARN" -Message "Impossible charger commandes PSWindowsUpdate post-install/import." }
+    } catch { Write-Log -Level "ERROR" -Message "Échec préparation module PSWindowsUpdate. Erreur: $($_.Exception.Message)" }
+    if ($PSWindowsUpdateModuleLoaded) { try { $WUAService = Get-Service wuauserv -ErrorAction SilentlyContinue; if ($WUAService -and $WUAService.Status -ne 'Running') { Write-Log -Level "VERBOSE" -Message "Démarrage service Windows Update..."; Start-Service wuauserv -ErrorAction SilentlyContinue }; Write-Log -Level "INFO" -Message "Lancement recherche/installation MàJ Windows via PSWindowsUpdate..."; Install-WindowsUpdate -AcceptAll -IgnoreReboot -Verbose -ErrorAction Stop; Write-Log -Level "INFO" -Message "Commande Install-WindowsUpdate terminée. Vérification redémarrage..."; if (Test-WUReboot -ErrorAction SilentlyContinue) { Write-Log -Level "WARN" -Message "Redémarrage requis post-MàJ."; $RebootRequiredByUpdate = $true } else { Write-Log -Level "SUCCESS" -Message "MàJ Windows terminées (ou aucune nécessitant redémarrage)." } } catch { Write-Log -Level "ERROR" -Message "Erreur exécution MàJ Windows. Vérifier connectivité/service WU. Erreur: $($_.Exception.Message)"; if (Test-WUReboot -ErrorAction SilentlyContinue) { Write-Log -Level "WARN" -Message "Redémarrage semble requis malgré l'erreur."; $RebootRequiredByUpdate = $true } } } else { Write-Log -Level "WARN" -Message "Module PSWindowsUpdate non chargé, étape MàJ Windows ignorée." }
+} else { Write-Log -Level "INFO" -Message "MàJ Windows ignorées (-SkipWindowsUpdate)." }
+
+# --- 12. Final Cleanup (Scheduled via RunOnce) ---
+Show-Banner -CurrentStep "Planification Nettoyage Final"; Write-Log -Level "INFO" -Message "Configuration nettoyage fichiers/dossiers déploiement (sauf Logs)..."; $RunOnceKey = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"; $CleanupEntryName = "KoesioDeployCleanup"; $deployPs1Path = Join-Path -Path $PSScriptRoot -ChildPath "Deploy.ps1"; $startBatPath = Join-Path -Path $PSScriptRoot -ChildPath "Start-Deploy.bat"; $CleanupCommand = "cmd.exe /c del /q /f `"$deployPs1Path`" & del /q /f `"$startBatPath`" & rmdir /s /q `"$DataPath`""; Set-RegValue -Path $RunOnceKey -Name $CleanupEntryName -Value $CleanupCommand -RegType String; if (Get-ItemProperty -Path $RunOnceKey -Name $CleanupEntryName -ErrorAction SilentlyContinue) { Write-Log -Level "SUCCESS" -Message "Nettoyage (sauf Logs) programmé via RunOnce." } else { Write-Log -Level "WARN" -Message "La clé RunOnce pour le nettoyage n'a pas pu être confirmée." }
+
+# --- 13. Final Messages & Exit ---
+Show-Banner -CurrentStep "Terminé"; Write-Log -Level "SUCCESS" -Message "Script déploiement Koesio v$ScriptVersion (PRO) terminé."; $RebootRequiredOverall = $false; $ComputerInfoAfter = Get-CimInstance Win32_ComputerSystem; if ($RenameNeeded -and ($ComputerInfoAfter.Name -ne $NewName)) { Write-Log -Level "WARN" -Message "Redémarrage requis pour nom PC."; $RebootRequiredOverall = $true }; if ($RebootRequiredByUpdate) { $RebootRequiredOverall = $true }; if ($RebootRequiredOverall) { Write-Log -Level "WARN" -Message "REDÉMARRAGE REQUIS pour finaliser."; $PromptTitle = "Redémarrage?"; $PromptMsg = "Redémarrer maintenant?"; $Choices = [System.Management.Automation.Host.ChoiceDescription[]]@('&Oui', '&Non'); if (($Host.UI.PromptForChoice($PromptTitle, $PromptMsg, $Choices, 0)) -eq 0) { Write-Log -Level "INFO" -Message "Redémarrage..."; Stop-Transcript; Restart-Computer -Force; Exit 0 } else { Write-Log -Level "INFO" -Message "Redémarrage manuel requis." } } else { Write-Log -Level "INFO" -Message "Aucun redémarrage immédiat requis par script." }; Write-Host "`nAppuyez sur Entrée pour fermer..." -ForegroundColor Cyan; Read-Host; Stop-Transcript; Exit 0
+
+#endregion

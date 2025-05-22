@@ -1,0 +1,812 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250425212148
+Nom d'utilisateur : DESKTOP-LPLRTEN\Utilisateur
+Utilisateur runAs :  DESKTOP-LPLRTEN\Utilisateur
+Nom de la configuration : 
+Ordinateur : DESKTOP-LPLRTEN (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Deploy.ps1
+ID de processus : 3848
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Logs\Deploy_20250425_212148.log
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Vérifications Initiales
+================================================================================
+[2025-04-25 21:21:48] [STEP] Début de l'étape : Vérifications Initiales
+[2025-04-25 21:21:48] [STEP] Début de l'étape : Vérifications Initiales
+[2025-04-25 21:21:48] [INFO] Démarrage du script de déploiement Koesio Aquitaine v4.1.2025
+[2025-04-25 21:21:48] [INFO] Démarrage du script de déploiement Koesio Aquitaine v4.1.2025
+[2025-04-25 21:21:48] [INFO] Log Level: INFO
+[2025-04-25 21:21:48] [INFO] Log Level: INFO
+[2025-04-25 21:21:48] [VERBOSE] Chemin du script: C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1
+[2025-04-25 21:21:48] [VERBOSE] Fichier de log: C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Logs\Deploy_20250425_212148.log
+[2025-04-25 21:21:48] [INFO] Vérification des droits administrateur...
+[2025-04-25 21:21:48] [INFO] Vérification des droits administrateur...
+[2025-04-25 21:21:49] [SUCCESS] Droits administrateur confirmés.
+[2025-04-25 21:21:49] [SUCCESS] Droits administrateur confirmés.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Configuration Nom Ordinateur
+================================================================================
+[2025-04-25 21:21:49] [STEP] Début de l'étape : Configuration Nom Ordinateur
+[2025-04-25 21:21:49] [STEP] Début de l'étape : Configuration Nom Ordinateur
+[2025-04-25 21:21:49] [INFO] Utilisation du numéro de série comme nom cible: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 21:21:49] [INFO] Utilisation du numéro de série comme nom cible: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 21:21:49] [INFO] Nom actuel: 'DESKTOP-LPLRTEN'. Nom cible: 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'.
+[2025-04-25 21:21:49] [INFO] Nom actuel: 'DESKTOP-LPLRTEN'. Nom cible: 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'.
+[2025-04-25 21:21:49] [INFO] Tentative de renommage...
+[2025-04-25 21:21:49] [INFO] Tentative de renommage...
+AVERTISSEMENT : Les modifications seront prises en compte après le redémarrage de l'ordinateur DESKTOP-LPLRTEN.
+[2025-04-25 21:21:50] [SUCCESS] Renommage de l'ordinateur réussi vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'. Un redémarrage est requis pour appliquer le changement.
+[2025-04-25 21:21:50] [SUCCESS] Renommage de l'ordinateur réussi vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'. Un redémarrage est requis pour appliquer le changement.
+[2025-04-25 21:21:50] [WARN] NOTE: Le script continuera avec l'ancien nom ('DESKTOP-LPLRTEN') jusqu'au redémarrage.
+[2025-04-25 21:21:50] [WARN] NOTE: Le script continuera avec l'ancien nom ('DESKTOP-LPLRTEN') jusqu'au redémarrage.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Configuration Système de Base
+================================================================================
+[2025-04-25 21:21:50] [STEP] Début de l'étape : Configuration Système de Base
+[2025-04-25 21:21:50] [STEP] Début de l'étape : Configuration Système de Base
+[2025-04-25 21:21:50] [INFO] Configuration des icônes du bureau...
+[2025-04-25 21:21:50] [INFO] Configuration des icônes du bureau...
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{20D04FE0-3AEA-1069-A2D8-08002B30309D}', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{59031a47-3f72-44a7-89c5-5595fe6b30ee}', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}', Value='1', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}' = '1' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{20D04FE0-3AEA-1069-A2D8-08002B30309D}', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{59031a47-3f72-44a7-89c5-5595fe6b30ee}', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}', Value='1', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: '{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}' = '1' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:21:50] [SUCCESS] Configuration des icônes du bureau terminée.
+[2025-04-25 21:21:50] [SUCCESS] Configuration des icônes du bureau terminée.
+[2025-04-25 21:21:50] [INFO] Activation du NumLock au démarrage...
+[2025-04-25 21:21:50] [INFO] Activation du NumLock au démarrage...
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKCU:\Control Panel\Keyboard', Name='InitialKeyboardIndicators', Value='2', Type='String'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: 'InitialKeyboardIndicators' = '2' dans 'HKCU:\Control Panel\Keyboard'.
+True
+[2025-04-25 21:21:50] [INFO] Configuration des paramètres d'alimentation...
+[2025-04-25 21:21:50] [INFO] Configuration des paramètres d'alimentation...
+[2025-04-25 21:21:50] [SUCCESS] Paramètres d'alimentation (veille moniteur, disque, PC) configurés.
+[2025-04-25 21:21:50] [SUCCESS] Paramètres d'alimentation (veille moniteur, disque, PC) configurés.
+[2025-04-25 21:21:50] [INFO] Désactivation du démarrage rapide (Hiberboot)...
+[2025-04-25 21:21:50] [INFO] Désactivation du démarrage rapide (Hiberboot)...
+[2025-04-25 21:21:50] [VERBOSE] Configuration Registre: Path='HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power', Name='HiberbootEnabled', Value='0', Type='DWORD'
+[2025-04-25 21:21:50] [VERBOSE] Valeur de registre définie: 'HiberbootEnabled' = '0' dans 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power'.
+True
+[2025-04-25 21:21:50] [INFO] Nettoyage des raccourcis Microsoft Edge sur les bureaux...
+[2025-04-25 21:21:50] [INFO] Nettoyage des raccourcis Microsoft Edge sur les bureaux...
+Impossible de convertir l'argument «folder» (valeur «Public») de «GetFolderPath» en type «
+System.Environment+SpecialFolder»: «Impossible de convertir la valeur «Public» en type «System.Environment+SpecialFolder
+». Erreur: «Impossible de faire correspondre le nom d'identificateur Public à un nom d'énumérateur valide. Spécifiez 
+l'un des noms d'énumérateur suivants et réessayez :
+Desktop, Programs, MyDocuments, Personal, Favorites, Startup, Recent, SendTo, StartMenu, MyMusic, MyVideos, 
+DesktopDirectory, MyComputer, NetworkShortcuts, Fonts, Templates, CommonStartMenu, CommonPrograms, CommonStartup, 
+CommonDesktopDirectory, ApplicationData, PrinterShortcuts, LocalApplicationData, InternetCache, Cookies, History, 
+CommonApplicationData, Windows, System, ProgramFiles, MyPictures, UserProfile, SystemX86, ProgramFilesX86, 
+CommonProgramFiles, CommonProgramFilesX86, CommonTemplates, CommonDocuments, CommonAdminTools, AdminTools, CommonMusic, 
+CommonPictures, CommonVideos, Resources, LocalizedResources, CommonOemLinks, CDBurning»»
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Deploy.ps1:277 : 5
++     Join-Path ([Environment]::GetFolderPath('Public')) 'Desktop\Micro ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodException
+    + FullyQualifiedErrorId : MethodArgumentConversionInvalidCastArgument
+Impossible de convertir l'argument «folder» (valeur «Public») de «GetFolderPath» en type «
+System.Environment+SpecialFolder»: «Impossible de convertir la valeur «Public» en type «
+System.Environment+SpecialFolder». Erreur: «Impossible de faire correspondre le nom d'identificateur Public à un nom
+d'énumérateur valide. Spécifiez l'un des noms d'énumérateur suivants et réessayez :
+Desktop, Programs, MyDocuments, Personal, Favorites, Startup, Recent, SendTo, StartMenu, MyMusic, MyVideos,
+DesktopDirectory, MyComputer, NetworkShortcuts, Fonts, Templates, CommonStartMenu, CommonPrograms, CommonStartup,
+CommonDesktopDirectory, ApplicationData, PrinterShortcuts, LocalApplicationData, InternetCache, Cookies, History,
+CommonApplicationData, Windows, System, ProgramFiles, MyPictures, UserProfile, SystemX86, ProgramFilesX86,
+CommonProgramFiles, CommonProgramFilesX86, CommonTemplates, CommonDocuments, CommonAdminTools, AdminTools,
+CommonMusic, CommonPictures, CommonVideos, Resources, LocalizedResources, CommonOemLinks, CDBurning»»
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Deploy.ps1:277 : 5
++     Join-Path ([Environment]::GetFolderPath('Public')) 'Desktop\Micro ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodException
+    + FullyQualifiedErrorId : MethodArgumentConversionInvalidCastArgument
+
+[2025-04-25 21:21:51] [SUCCESS] Configuration système de base terminée.
+[2025-04-25 21:21:51] [SUCCESS] Configuration système de base terminée.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Gestion BitLocker
+================================================================================
+[2025-04-25 21:21:51] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 21:21:51] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 21:21:51] [INFO] Vérification de l'état de BitLocker...
+[2025-04-25 21:21:51] [INFO] Vérification de l'état de BitLocker...
+AVERTISSEMENT : Les noms de certaines commandes importées du module « BitLocker » contiennent des verbes non approuvés qui peuvent les rendre moins détectables. Pour trouver les commandes comportant des verbes non approuvés, réexécutez la commande Import-Module avec le paramètre Verbose. Pour obtenir la liste des verbes approuvés, tapez Get-Verb.
+[2025-04-25 21:21:51] [INFO] Volume 'C:': Statut = 'FullyDecrypted', Type = 'OperatingSystem', Pourcentage Chiffré = 0%
+[2025-04-25 21:21:51] [INFO] Volume 'C:': Statut = 'FullyDecrypted', Type = 'OperatingSystem', Pourcentage Chiffré = 0%
+[2025-04-25 21:21:51] [INFO] Le volume 'C:' n'est pas chiffré (FullyDecrypted).
+[2025-04-25 21:21:51] [INFO] Le volume 'C:' n'est pas chiffré (FullyDecrypted).
+[2025-04-25 21:21:51] [VERBOSE] --- Fin traitement volume 'C:' ---
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Installation Chocolatey & Logiciels Base
+================================================================================
+[2025-04-25 21:21:51] [STEP] Début de l'étape : Installation Chocolatey & Logiciels Base
+[2025-04-25 21:21:51] [STEP] Début de l'étape : Installation Chocolatey & Logiciels Base
+[2025-04-25 21:21:51] [INFO] Vérification de l'installation de Chocolatey...
+[2025-04-25 21:21:51] [INFO] Vérification de l'installation de Chocolatey...
+[2025-04-25 21:21:51] [SUCCESS] Chocolatey est déjà installé.
+[2025-04-25 21:21:51] [SUCCESS] Chocolatey est déjà installé.
+[2025-04-25 21:21:51] [INFO] Installation des logiciels de base via Chocolatey...
+[2025-04-25 21:21:51] [INFO] Installation des logiciels de base via Chocolatey...
+[2025-04-25 21:21:52] [VERBOSE] Traitement de googlechrome...
+[2025-04-25 21:21:55] [INFO] Tentative d'installation de googlechrome (avec --ignore-checksums)...
+[2025-04-25 21:21:55] [INFO] Tentative d'installation de googlechrome (avec --ignore-checksums)...
+Installing the following packages:
+googlechrome
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-compatibility.extension v1.0.0 [Approved]
+chocolatey-compatibility.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-compatibility extensions.
+ The install of chocolatey-compatibility.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-compatibility'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-core.extension v1.4.0 [Approved]
+chocolatey-core.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-core extensions.
+ The install of chocolatey-core.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-core'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+GoogleChrome v135.0.7049.96 [Approved]
+GoogleChrome package files install completed. Performing other installation steps.
+Downloading googlechrome 64 bit
+  from 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi'
+
+Download of googlechromestandaloneenterprise64.msi (126.73 MB) completed.
+WARNING: Ignoring checksums due to feature checksumFiles turned off or option --ignore-checksums set.
+Installing googlechrome...
+googlechrome has been installed.
+  GoogleChrome may be able to be automatically uninstalled.
+ The install of GoogleChrome was successful.
+  Software installed as 'MSI', install location is likely default.
+
+Chocolatey installed 3/3 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:23:01] [SUCCESS] googlechrome installé avec succès (ou tentative lancée).
+[2025-04-25 21:23:01] [SUCCESS] googlechrome installé avec succès (ou tentative lancée).
+[2025-04-25 21:23:05] [VERBOSE] Traitement de firefox...
+[2025-04-25 21:23:08] [INFO] Tentative d'installation de firefox...
+[2025-04-25 21:23:08] [INFO] Tentative d'installation de firefox...
+Installing the following packages:
+firefox
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+Firefox v137.0.2 [Approved]
+Firefox package files install completed. Performing other installation steps.
+Using locale 'fr'...
+Downloading Firefox 64 bit
+  from 'https://download.mozilla.org/?product=firefox-137.0.2-ssl&os=win64&lang=fr'
+
+Download of Firefox Setup 137.0.2.exe (68.85 MB) completed.
+Hashes match.
+Installing Firefox...
+Firefox has been installed.
+WARNING: No registry key found based on  'Mozilla Firefox'
+  Firefox may be able to be automatically uninstalled.
+ The install of Firefox was successful.
+  Deployed to 'C:\Program Files\Mozilla Firefox'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:23:51] [SUCCESS] firefox installé avec succès (ou tentative lancée).
+[2025-04-25 21:23:51] [SUCCESS] firefox installé avec succès (ou tentative lancée).
+[2025-04-25 21:23:55] [VERBOSE] Traitement de adobereader...
+[2025-04-25 21:23:59] [INFO] Tentative d'installation de adobereader...
+[2025-04-25 21:23:59] [INFO] Tentative d'installation de adobereader...
+Installing the following packages:
+adobereader
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919442 v1.0.20160915 [Approved]
+KB2919442 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919442 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919355 v1.0.20160915 [Approved]
+KB2919355 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919355 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+adobereader v2025.1.20432
+adobereader package files install completed. Performing other installation steps.
+WARNING: No registry key found based on  'Adobe Acrobat*'
+Configuring manual update checks and installs.
+Downloading adobereader 64 bit
+  from 'https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2500120432/AcroRdrDCx642500120432_MUI.exe'
+
+Download of AcroRdrDCx642500120432_MUI.exe (674.3 MB) completed.
+Hashes match.
+Installing adobereader (installer)...
+adobereader (installer) has been installed.
+  adobereader may be able to be automatically uninstalled.
+ The install of adobereader was successful.
+  Deployed to 'C:\Program Files\Adobe\Acrobat DC\'
+
+Chocolatey installed 3/3 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:28:03] [SUCCESS] adobereader installé avec succès (ou tentative lancée).
+[2025-04-25 21:28:03] [SUCCESS] adobereader installé avec succès (ou tentative lancée).
+[2025-04-25 21:28:07] [VERBOSE] Traitement de 7zip.install...
+[2025-04-25 21:28:10] [INFO] Tentative d'installation de 7zip.install...
+[2025-04-25 21:28:10] [INFO] Tentative d'installation de 7zip.install...
+Installing the following packages:
+7zip.install
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+7zip.install v24.9.0 [Approved]
+7zip.install package files install completed. Performing other installation steps.
+Installing 64 bit version
+Installing 7zip.install...
+7zip.install has been installed.
+7zip installed to 'C:\Program Files\7-Zip'
+Added C:\ProgramData\chocolatey\bin\7z.exe shim pointed to 'c:\program files\7-zip\7z.exe'.
+  7zip.install can be automatically uninstalled.
+ The install of 7zip.install was successful.
+  Deployed to 'C:\Program Files\7-Zip\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:28:22] [SUCCESS] 7zip.install installé avec succès (ou tentative lancée).
+[2025-04-25 21:28:22] [SUCCESS] 7zip.install installé avec succès (ou tentative lancée).
+[2025-04-25 21:28:25] [VERBOSE] Traitement de teamviewer...
+[2025-04-25 21:28:27] [INFO] Tentative d'installation de teamviewer...
+[2025-04-25 21:28:27] [INFO] Tentative d'installation de teamviewer...
+Installing the following packages:
+teamviewer
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+teamviewer v15.64.3 [Approved]
+teamviewer package files install completed. Performing other installation steps.
+Downloading teamviewer 64 bit
+  from 'https://download.teamviewer.com/download/version_15x/TeamViewer_Setup_x64.exe'
+
+Download of TeamViewer_Setup_x64.exe (72 MB) completed.
+Hashes match.
+Installing teamviewer...
+teamviewer has been installed.
+  teamviewer may be able to be automatically uninstalled.
+ The install of teamviewer was successful.
+  Deployed to 'C:\Program Files\TeamViewer'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:29:09] [SUCCESS] teamviewer installé avec succès (ou tentative lancée).
+[2025-04-25 21:29:09] [SUCCESS] teamviewer installé avec succès (ou tentative lancée).
+[2025-04-25 21:29:13] [VERBOSE] Traitement de openjdk...
+[2025-04-25 21:29:16] [INFO] Tentative d'installation de openjdk...
+[2025-04-25 21:29:16] [INFO] Tentative d'installation de openjdk...
+Installing the following packages:
+openjdk
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+openjdk v22.0.2 [Approved]
+openjdk package files install completed. Performing other installation steps.
+Downloading openjdk 64 bit
+  from 'https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bi
+n.zip'
+
+Download of openjdk-22.0.2_windows-x64_bin.zip (191.28 MB) completed.
+Hashes match.
+Extracting C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\openjdk\22.0.2\openjdk-22.0.2_windows-x64_bin.zip to C:\Pr
+ogram Files\OpenJDK...
+C:\Program Files\OpenJDK
+PATH environment variable does not have C:\Program Files\OpenJDK\jdk-22.0.2\bin in it. Adding...
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of openjdk was successful.
+  Deployed to 'C:\Program Files\OpenJDK'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:30:00] [SUCCESS] openjdk installé avec succès (ou tentative lancée).
+[2025-04-25 21:30:00] [SUCCESS] openjdk installé avec succès (ou tentative lancée).
+[2025-04-25 21:30:03] [VERBOSE] Traitement de dotnetfx...
+[2025-04-25 21:30:05] [INFO] Tentative d'installation de dotnetfx...
+[2025-04-25 21:30:05] [INFO] Tentative d'installation de dotnetfx...
+Installing the following packages:
+dotnetfx
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-dotnetfx.extension v1.0.1
+chocolatey-dotnetfx.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-dotnetfx extensions.
+ The install of chocolatey-dotnetfx.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-dotnetfx'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+dotnetfx v4.8.0.20220524 [Approved]
+dotnetfx package files install completed. Performing other installation steps.
+Microsoft .NET Framework 4.8 or later is already installed.
+ The install of dotnetfx was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+
+Chocolatey installed 2/2 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:30:14] [SUCCESS] dotnetfx installé avec succès (ou tentative lancée).
+[2025-04-25 21:30:14] [SUCCESS] dotnetfx installé avec succès (ou tentative lancée).
+[2025-04-25 21:30:17] [SUCCESS] Installation des logiciels de base terminée (vérifiez les warnings/erreurs).
+[2025-04-25 21:30:17] [SUCCESS] Installation des logiciels de base terminée (vérifiez les warnings/erreurs).
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Installation Logiciels Optionnels
+================================================================================
+[2025-04-25 21:30:17] [STEP] Début de l'étape : Installation Logiciels Optionnels
+[2025-04-25 21:30:17] [STEP] Début de l'étape : Installation Logiciels Optionnels
+
+--- Sélection des Logiciels Optionnels ---
+Entrez les numéros des logiciels à installer, séparés par des virgules (ex: 4,6).
+Laissez vide et appuyez sur Entrée pour ne rien installer.
+1. Microsoft 365 Apps for Business
+2. Office 2019 Famille et Petite Entreprise
+3. Office 2021 Famille et Petite Entreprise
+4. OpenVPN Connect v3
+5. FortiClient VPN
+6. VLC Media Player
+[2025-04-25 21:31:49] [INFO] Sélection utilisateur pour logiciels optionnels: '1,2,3,4,5,6'
+[2025-04-25 21:31:49] [INFO] Sélection utilisateur pour logiciels optionnels: '1,2,3,4,5,6'
+[2025-04-25 21:31:49] [INFO] Traitement du logiciel optionnel sélectionné: 'Microsoft 365 Apps for Business' (ID: office365business)
+[2025-04-25 21:31:49] [INFO] Traitement du logiciel optionnel sélectionné: 'Microsoft 365 Apps for Business' (ID: office365business)
+[2025-04-25 21:31:55] [INFO] Tentative d'installation de Microsoft 365 Apps for Business (office365business)...
+[2025-04-25 21:31:55] [INFO] Tentative d'installation de Microsoft 365 Apps for Business (office365business)...
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+office365business v18623.20156.0 [Approved]
+office365business package files install completed. Performing other installation steps.
+No custom configuration specified. Generating one...
+No Product ID specified, using default: O365BusinessRetail
+No excluded apps specified, installing all
+No Language ID specified, using default: MatchOS
+No updates value specified, using default: TRUE
+No eula value specified, using default: TRUE
+C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\Office365Business
+Add
+Updates
+Display
+Logging
+RemoveMSI
+Downloading Office365DeploymentTool
+  from 'https://download.microsoft.com/download/6c1eeb25-cf8b-41d9-8d0d-cc1dbc032140/officedeploymenttool_18623-20156.exe'
+
+Download of officedeploymenttool_18623-20156.exe (3.62 MB) completed.
+Hashes match.
+Installing Office365DeploymentTool...
+Office365DeploymentTool has been installed.
+Installing Office365BusinessInstaller...
+Office365BusinessInstaller has been installed.
+Installing Office365Business...
+Office365Business has been installed.
+Cannot remove item C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\Office365Business: The process cannot access the file 'C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\Office365Busin
+ess' because it is being used by another process.
+Only an exit code of non-zero will fail the package by default. Set
+ `--failonstderr` if you want error messages to also fail a script. See
+ `choco -h` for details.
+  office365business may be able to be automatically uninstalled.
+ The install of office365business was successful.
+  Deployed to 'C:\Program Files\Microsoft Office'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:47:58] [SUCCESS] Microsoft 365 Apps for Business (office365business) installé avec succès (ou tentative lancée).
+[2025-04-25 21:47:58] [SUCCESS] Microsoft 365 Apps for Business (office365business) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:02] [INFO] Traitement du logiciel optionnel sélectionné: 'Office 2019 Famille et Petite Entreprise' (ID: office2019homebusiness)
+[2025-04-25 21:48:02] [INFO] Traitement du logiciel optionnel sélectionné: 'Office 2019 Famille et Petite Entreprise' (ID: office2019homebusiness)
+[2025-04-25 21:48:07] [INFO] Tentative d'installation de Office 2019 Famille et Petite Entreprise (office2019homebusiness)...
+[2025-04-25 21:48:07] [INFO] Tentative d'installation de Office 2019 Famille et Petite Entreprise (office2019homebusiness)...
+Installing the following packages:
+office2019homebusiness
+By installing, you accept licenses for the packages.
+office2019homebusiness not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - office2019homebusiness - office2019homebusiness not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 21:48:14] [SUCCESS] Office 2019 Famille et Petite Entreprise (office2019homebusiness) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:14] [SUCCESS] Office 2019 Famille et Petite Entreprise (office2019homebusiness) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:18] [WARN] Vérification post-installation: Office 2019 Famille et Petite Entreprise (office2019homebusiness) n'a PAS été installé correctement.
+[2025-04-25 21:48:18] [WARN] Vérification post-installation: Office 2019 Famille et Petite Entreprise (office2019homebusiness) n'a PAS été installé correctement.
+[2025-04-25 21:48:18] [INFO] Traitement du logiciel optionnel sélectionné: 'Office 2021 Famille et Petite Entreprise' (ID: office2021homebusiness)
+[2025-04-25 21:48:18] [INFO] Traitement du logiciel optionnel sélectionné: 'Office 2021 Famille et Petite Entreprise' (ID: office2021homebusiness)
+[2025-04-25 21:48:23] [INFO] Tentative d'installation de Office 2021 Famille et Petite Entreprise (office2021homebusiness)...
+[2025-04-25 21:48:23] [INFO] Tentative d'installation de Office 2021 Famille et Petite Entreprise (office2021homebusiness)...
+Installing the following packages:
+office2021homebusiness
+By installing, you accept licenses for the packages.
+office2021homebusiness not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - office2021homebusiness - office2021homebusiness not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 21:48:29] [SUCCESS] Office 2021 Famille et Petite Entreprise (office2021homebusiness) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:29] [SUCCESS] Office 2021 Famille et Petite Entreprise (office2021homebusiness) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:33] [WARN] Vérification post-installation: Office 2021 Famille et Petite Entreprise (office2021homebusiness) n'a PAS été installé correctement.
+[2025-04-25 21:48:33] [WARN] Vérification post-installation: Office 2021 Famille et Petite Entreprise (office2021homebusiness) n'a PAS été installé correctement.
+[2025-04-25 21:48:33] [INFO] Traitement du logiciel optionnel sélectionné: 'OpenVPN Connect v3' (ID: openvpn-connect-v3)
+[2025-04-25 21:48:33] [INFO] Traitement du logiciel optionnel sélectionné: 'OpenVPN Connect v3' (ID: openvpn-connect-v3)
+[2025-04-25 21:48:37] [INFO] Tentative d'installation de OpenVPN Connect v3 (openvpn-connect-v3)...
+[2025-04-25 21:48:37] [INFO] Tentative d'installation de OpenVPN Connect v3 (openvpn-connect-v3)...
+Installing the following packages:
+openvpn-connect-v3
+By installing, you accept licenses for the packages.
+openvpn-connect-v3 not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - openvpn-connect-v3 - openvpn-connect-v3 not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 21:48:43] [SUCCESS] OpenVPN Connect v3 (openvpn-connect-v3) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:43] [SUCCESS] OpenVPN Connect v3 (openvpn-connect-v3) installé avec succès (ou tentative lancée).
+[2025-04-25 21:48:48] [WARN] Vérification post-installation: OpenVPN Connect v3 (openvpn-connect-v3) n'a PAS été installé correctement.
+[2025-04-25 21:48:48] [WARN] Vérification post-installation: OpenVPN Connect v3 (openvpn-connect-v3) n'a PAS été installé correctement.
+[2025-04-25 21:48:48] [INFO] Traitement du logiciel optionnel sélectionné: 'FortiClient VPN' (ID: forticlientvpn)
+[2025-04-25 21:48:48] [INFO] Traitement du logiciel optionnel sélectionné: 'FortiClient VPN' (ID: forticlientvpn)
+[2025-04-25 21:48:53] [INFO] Tentative d'installation de FortiClient VPN (forticlientvpn)...
+[2025-04-25 21:48:53] [INFO] Tentative d'installation de FortiClient VPN (forticlientvpn)...
+Installing the following packages:
+forticlientvpn
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+forticlientvpn v7.0.1.83 [Approved]
+forticlientvpn package files install completed. Performing other installation steps.
+Downloading forticlientvpn 64 bit
+  from 'https://filestore.fortinet.com/forticlient/downloads/FortiClientVPNSetup_7.0.1.0083_x64.zip.zip'
+
+Download of FortiClientVPNSetup_7.0.1.0083_x64.zip.zip (101.19 MB) completed.
+Hashes match.
+Extracting C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\forticlientvpn\7.0.1.83\FortiClientVPNSetup_7.0.1.0083_x64.zip.zip to C:\ProgramData\chocolatey\lib\forticlientvpn\tools...
+C:\ProgramData\chocolatey\lib\forticlientvpn\tools
+Installing forticlientvpn...
+forticlientvpn has been installed.
+  forticlientvpn may be able to be automatically uninstalled.
+ The install of forticlientvpn was successful.
+  Deployed to 'C:\Program Files\Fortinet\FortiClient\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:50:20] [SUCCESS] FortiClient VPN (forticlientvpn) installé avec succès (ou tentative lancée).
+[2025-04-25 21:50:20] [SUCCESS] FortiClient VPN (forticlientvpn) installé avec succès (ou tentative lancée).
+[2025-04-25 21:50:24] [INFO] Traitement du logiciel optionnel sélectionné: 'VLC Media Player' (ID: vlc)
+[2025-04-25 21:50:24] [INFO] Traitement du logiciel optionnel sélectionné: 'VLC Media Player' (ID: vlc)
+[2025-04-25 21:50:29] [INFO] Tentative d'installation de VLC Media Player (vlc)...
+[2025-04-25 21:50:29] [INFO] Tentative d'installation de VLC Media Player (vlc)...
+Installing the following packages:
+vlc
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+vlc.install v3.0.21 [Approved]
+vlc.install package files install completed. Performing other installation steps.
+Installing 64-bit vlc.install...
+vlc.install has been installed.
+WARNING: No registry key found based on  'vlc.install'
+WARNING: Can't find vlc.install install location
+  vlc.install may be able to be automatically uninstalled.
+ The install of vlc.install was successful.
+  Deployed to 'C:\Program Files\VideoLAN\VLC'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+vlc v3.0.21 [Approved]
+vlc package files install completed. Performing other installation steps.
+ The install of vlc was successful.
+  Deployed to 'C:\ProgramData\chocolatey\lib\vlc'
+
+Chocolatey installed 2/2 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 21:51:38] [SUCCESS] VLC Media Player (vlc) installé avec succès (ou tentative lancée).
+[2025-04-25 21:51:38] [SUCCESS] VLC Media Player (vlc) installé avec succès (ou tentative lancée).
+[2025-04-25 21:51:42] [SUCCESS] Traitement des logiciels optionnels terminé.
+[2025-04-25 21:51:42] [SUCCESS] Traitement des logiciels optionnels terminé.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Configuration Confidentialité & Optimisation
+================================================================================
+[2025-04-25 21:51:42] [STEP] Début de l'étape : Configuration Confidentialité & Optimisation
+[2025-04-25 21:51:42] [STEP] Début de l'étape : Configuration Confidentialité & Optimisation
+[2025-04-25 21:51:42] [INFO] Configuration des paramètres de confidentialité Windows...
+[2025-04-25 21:51:42] [INFO] Configuration des paramètres de confidentialité Windows...
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo', Name='Enabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'Enabled' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Control Panel\International\User Profile', Name='HttpAcceptLanguageOptOut', Value='1', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'HttpAcceptLanguageOptOut' = '1' dans 'HKCU:\Control Panel\International\User Profile'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Privacy', Name='Start_TrackProgs', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Clé de registre créée: HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Privacy
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'Start_TrackProgs' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Privacy'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', Name='SubscribedContent-338389Enabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'SubscribedContent-338389Enabled' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', Name='SubscribedContent-310093Enabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'SubscribedContent-310093Enabled' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', Name='SubscribedContent-338387Enabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'SubscribedContent-338387Enabled' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager', Name='SystemPaneSuggestionsEnabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'SystemPaneSuggestionsEnabled' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'.
+True
+[2025-04-25 21:51:42] [SUCCESS] Paramètres de confidentialité principaux configurés.
+[2025-04-25 21:51:42] [SUCCESS] Paramètres de confidentialité principaux configurés.
+[2025-04-25 21:51:42] [INFO] Désactivation des fonctionnalités de Jeu (Game Bar, Mode Jeu)...
+[2025-04-25 21:51:42] [INFO] Désactivation des fonctionnalités de Jeu (Game Bar, Mode Jeu)...
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\GameBar', Name='AllowAutoGameMode', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'AllowAutoGameMode' = '0' dans 'HKCU:\Software\Microsoft\GameBar'.
+True
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR', Name='AppCaptureEnabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:42] [VERBOSE] Valeur de registre définie: 'AppCaptureEnabled' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR'.
+True
+[2025-04-25 21:51:42] [SUCCESS] Fonctionnalités de Jeu désactivées.
+[2025-04-25 21:51:42] [SUCCESS] Fonctionnalités de Jeu désactivées.
+[2025-04-25 21:51:42] [INFO] Configuration des Mises à jour pour autres produits Microsoft...
+[2025-04-25 21:51:42] [INFO] Configuration des Mises à jour pour autres produits Microsoft...
+[2025-04-25 21:51:42] [VERBOSE] Configuration Registre: Path='HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update', Name='IncludeRecommendedUpdates', Value='1', Type='DWORD'
+[2025-04-25 21:51:43] [VERBOSE] Clé de registre créée: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 21:51:43] [WARN] Échec de la configuration de la valeur de registre 'IncludeRecommendedUpdates' dans 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+[2025-04-25 21:51:43] [WARN] Échec de la configuration de la valeur de registre 'IncludeRecommendedUpdates' dans 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+[2025-04-25 21:51:43] [VERBOSE] Configuration Registre: Path='HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU', Name='IncludeRecommendedUpdates', Value='1', Type='DWORD'
+[2025-04-25 21:51:43] [VERBOSE] Clé de registre créée: HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 21:51:43] [WARN] Échec de la configuration de la valeur de registre 'IncludeRecommendedUpdates' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+[2025-04-25 21:51:43] [WARN] Échec de la configuration de la valeur de registre 'IncludeRecommendedUpdates' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+[2025-04-25 21:51:43] [VERBOSE] Configuration Registre: Path='HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU', Name='AllowMUUpdateService', Value='1', Type='DWORD'
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 21:51:43] [WARN] Échec de la configuration de la valeur de registre 'AllowMUUpdateService' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+[2025-04-25 21:51:43] [WARN] Échec de la configuration de la valeur de registre 'AllowMUUpdateService' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+[2025-04-25 21:51:43] [INFO] Vérification/Installation du module PSWindowsUpdate...
+[2025-04-25 21:51:43] [INFO] Vérification/Installation du module PSWindowsUpdate...
+[2025-04-25 21:51:43] [INFO] Module PSWindowsUpdate non trouvé. Tentative d'installation...
+[2025-04-25 21:51:43] [INFO] Module PSWindowsUpdate non trouvé. Tentative d'installation...
+[2025-04-25 21:51:43] [VERBOSE] Vérification/Installation du fournisseur NuGet...
+
+Name                           Version          Source           Summary
+----                           -------          ------           -------
+nuget                          2.8.5.208        https://onege... NuGet provider for the OneGet meta-package manager
+[2025-04-25 21:51:49] [VERBOSE] Installation du module PSWindowsUpdate depuis PSGallery...
+[2025-04-25 21:51:59] [SUCCESS] Module PSWindowsUpdate installé avec succès.
+[2025-04-25 21:51:59] [SUCCESS] Module PSWindowsUpdate installé avec succès.
+[2025-04-25 21:51:59] [INFO] Configuration de l'Optimisation de Livraison (Delivery Optimization)...
+[2025-04-25 21:51:59] [INFO] Configuration de l'Optimisation de Livraison (Delivery Optimization)...
+[2025-04-25 21:51:59] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config', Name='DODownloadMode', Value='0', Type='DWORD'
+[2025-04-25 21:51:59] [VERBOSE] Clé de registre créée: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config
+[2025-04-25 21:51:59] [VERBOSE] Valeur de registre définie: 'DODownloadMode' = '0' dans 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config'.
+True
+[2025-04-25 21:51:59] [SUCCESS] Optimisation de Livraison configurée en mode HTTP uniquement.
+[2025-04-25 21:51:59] [SUCCESS] Optimisation de Livraison configurée en mode HTTP uniquement.
+[2025-04-25 21:51:59] [INFO] Désactivation des applications au démarrage (OneDrive, Edge, Copilot)...
+[2025-04-25 21:51:59] [INFO] Désactivation des applications au démarrage (OneDrive, Edge, Copilot)...
+[2025-04-25 21:51:59] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive', Name='DisableFileSyncNGSC', Value='1', Type='DWORD'
+[2025-04-25 21:51:59] [VERBOSE] Clé de registre créée: HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive
+[2025-04-25 21:51:59] [VERBOSE] Valeur de registre définie: 'DisableFileSyncNGSC' = '1' dans 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive'.
+True
+[2025-04-25 21:51:59] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Policies\Microsoft\Edge', Name='StartupBoostEnabled', Value='0', Type='DWORD'
+[2025-04-25 21:51:59] [VERBOSE] Clé de registre créée: HKLM:\SOFTWARE\Policies\Microsoft\Edge
+[2025-04-25 21:51:59] [VERBOSE] Valeur de registre définie: 'StartupBoostEnabled' = '0' dans 'HKLM:\SOFTWARE\Policies\Microsoft\Edge'.
+True
+[2025-04-25 21:51:59] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced', Name='ShowCopilotButton', Value='0', Type='DWORD'
+[2025-04-25 21:51:59] [VERBOSE] Valeur de registre définie: 'ShowCopilotButton' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'.
+True
+[2025-04-25 21:51:59] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot', Name='TurnOffWindowsCopilot', Value='1', Type='DWORD'
+[2025-04-25 21:51:59] [VERBOSE] Clé de registre créée: HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot
+[2025-04-25 21:51:59] [VERBOSE] Valeur de registre définie: 'TurnOffWindowsCopilot' = '1' dans 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot'.
+True
+[2025-04-25 21:51:59] [SUCCESS] Applications au démarrage (OneDrive, Edge, Copilot) désactivées/limitées.
+[2025-04-25 21:51:59] [SUCCESS] Applications au démarrage (OneDrive, Edge, Copilot) désactivées/limitées.
+[2025-04-25 21:51:59] [SUCCESS] Configuration Confidentialité & Optimisation terminée.
+[2025-04-25 21:51:59] [SUCCESS] Configuration Confidentialité & Optimisation terminée.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Installation Outils Fabricant
+================================================================================
+[2025-04-25 21:52:00] [STEP] Début de l'étape : Installation Outils Fabricant
+[2025-04-25 21:52:00] [STEP] Début de l'étape : Installation Outils Fabricant
+[2025-04-25 21:52:00] [INFO] Vérification des outils spécifiques au fabricant...
+[2025-04-25 21:52:00] [INFO] Vérification des outils spécifiques au fabricant...
+[2025-04-25 21:52:00] [INFO] Fabricant détecté: innotek GmbH
+[2025-04-25 21:52:00] [INFO] Fabricant détecté: innotek GmbH
+[2025-04-25 21:52:00] [INFO] Aucun traitement spécifique défini pour le fabricant 'innotek GmbH'.
+[2025-04-25 21:52:00] [INFO] Aucun traitement spécifique défini pour le fabricant 'innotek GmbH'.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Installation GoToAssist
+================================================================================
+[2025-04-25 21:52:00] [STEP] Début de l'étape : Installation GoToAssist
+[2025-04-25 21:52:00] [STEP] Début de l'étape : Installation GoToAssist
+[2025-04-25 21:52:00] [INFO] Vérification et installation de GoToAssist depuis le répertoire Data...
+[2025-04-25 21:52:00] [INFO] Vérification et installation de GoToAssist depuis le répertoire Data...
+[2025-04-25 21:52:00] [VERBOSE] Fichier source GoToAssist trouvé: C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Data\GoToAssist.exe
+[2025-04-25 21:52:00] [VERBOSE] Répertoire de destination créé: C:\Program Files\GoToAssist
+[2025-04-25 21:52:00] [SUCCESS] GoToAssist.exe copié vers C:\Program Files\GoToAssist\GoToAssist.exe
+[2025-04-25 21:52:00] [SUCCESS] GoToAssist.exe copié vers C:\Program Files\GoToAssist\GoToAssist.exe
+[2025-04-25 21:52:00] [VERBOSE] Création du raccourci 'C:\Users\Public\Desktop\GoToAssist.lnk' pointant vers 'C:\Program Files\GoToAssist\GoToAssist.exe'
+[2025-04-25 21:52:01] [SUCCESS] Raccourci 'C:\Users\Public\Desktop\GoToAssist.lnk' créé avec succès.
+[2025-04-25 21:52:01] [SUCCESS] Raccourci 'C:\Users\Public\Desktop\GoToAssist.lnk' créé avec succès.
+True
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Configuration Informations OEM
+================================================================================
+[2025-04-25 21:52:01] [STEP] Début de l'étape : Configuration Informations OEM
+[2025-04-25 21:52:01] [STEP] Début de l'étape : Configuration Informations OEM
+[2025-04-25 21:52:01] [INFO] Configuration des informations OEM dans le registre...
+[2025-04-25 21:52:01] [INFO] Configuration des informations OEM dans le registre...
+[2025-04-25 21:52:01] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', Name='SupportURL', Value='https://www.koesio.com/', Type='String'
+[2025-04-25 21:52:01] [VERBOSE] Valeur de registre définie: 'SupportURL' = 'https://www.koesio.com/' dans 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'.
+True
+[2025-04-25 21:52:01] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', Name='Manufacturer', Value='Koesio Aquitaine', Type='String'
+[2025-04-25 21:52:01] [VERBOSE] Valeur de registre définie: 'Manufacturer' = 'Koesio Aquitaine' dans 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'.
+True
+[2025-04-25 21:52:01] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', Name='SupportHours', Value='08H30-12H30|14H00-17H30', Type='String'
+[2025-04-25 21:52:01] [VERBOSE] Valeur de registre définie: 'SupportHours' = '08H30-12H30|14H00-17H30' dans 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'.
+True
+[2025-04-25 21:52:01] [VERBOSE] Configuration Registre: Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation', Name='SupportPhone', Value='05 57 51 52 52', Type='String'
+[2025-04-25 21:52:01] [VERBOSE] Valeur de registre définie: 'SupportPhone' = '05 57 51 52 52' dans 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'.
+True
+[2025-04-25 21:52:01] [SUCCESS] Informations OEM configurées avec succès.
+[2025-04-25 21:52:01] [SUCCESS] Informations OEM configurées avec succès.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Création Raccourcis & Épinglage
+================================================================================
+[2025-04-25 21:52:01] [STEP] Début de l'étape : Création Raccourcis & Épinglage
+[2025-04-25 21:52:01] [STEP] Début de l'étape : Création Raccourcis & Épinglage
+[2025-04-25 21:52:01] [WARN] *** AVERTISSEMENT: L'épinglage automatique à la barre des tâches nécessite que Windows soit en Français. ***
+[2025-04-25 21:52:01] [WARN] *** AVERTISSEMENT: L'épinglage automatique à la barre des tâches nécessite que Windows soit en Français. ***
+[2025-04-25 21:52:01] [INFO] Création du raccourci Adobe Reader sur le bureau public...
+[2025-04-25 21:52:01] [INFO] Création du raccourci Adobe Reader sur le bureau public...
+[2025-04-25 21:52:01] [VERBOSE] Exécutable Adobe trouvé: C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe
+[2025-04-25 21:52:01] [VERBOSE] Création du raccourci 'C:\Users\Public\Desktop\Adobe Acrobat Reader DC.lnk' pointant vers 'C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe'
+[2025-04-25 21:52:01] [SUCCESS] Raccourci 'C:\Users\Public\Desktop\Adobe Acrobat Reader DC.lnk' créé avec succès.
+[2025-04-25 21:52:01] [SUCCESS] Raccourci 'C:\Users\Public\Desktop\Adobe Acrobat Reader DC.lnk' créé avec succès.
+True
+[2025-04-25 21:52:01] [INFO] Tentative d'épinglage de Chrome, Firefox et Adobe Reader à la barre des tâches (OS Français requis)...
+[2025-04-25 21:52:01] [INFO] Tentative d'épinglage de Chrome, Firefox et Adobe Reader à la barre des tâches (OS Français requis)...
+[2025-04-25 21:52:01] [VERBOSE] Recherche du lien pour Google Chrome: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Google Chrome.lnk'
+[2025-04-25 21:52:03] [WARN] Le verbe 'Épingler à la barre des tâches' n'a pas été trouvé pour Google Chrome. Vérifiez la langue de l'OS ou si l'application est déjà épinglée.
+[2025-04-25 21:52:03] [WARN] Le verbe 'Épingler à la barre des tâches' n'a pas été trouvé pour Google Chrome. Vérifiez la langue de l'OS ou si l'application est déjà épinglée.
+[2025-04-25 21:52:03] [VERBOSE] Recherche du lien pour Mozilla Firefox: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Firefox.lnk'
+[2025-04-25 21:52:03] [WARN] Le verbe 'Épingler à la barre des tâches' n'a pas été trouvé pour Mozilla Firefox. Vérifiez la langue de l'OS ou si l'application est déjà épinglée.
+[2025-04-25 21:52:03] [WARN] Le verbe 'Épingler à la barre des tâches' n'a pas été trouvé pour Mozilla Firefox. Vérifiez la langue de l'OS ou si l'application est déjà épinglée.
+[2025-04-25 21:52:03] [VERBOSE] Recherche du lien pour Adobe Reader: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Adobe Acrobat Reader DC.lnk'
+[2025-04-25 21:52:03] [WARN] Le raccourci 'Adobe Acrobat Reader DC.lnk' n'a pas été trouvé dans 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'. Impossible d'épingler Adobe Reader.
+[2025-04-25 21:52:03] [WARN] Le raccourci 'Adobe Acrobat Reader DC.lnk' n'a pas été trouvé dans 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'. Impossible d'épingler Adobe Reader.
+[2025-04-25 21:52:03] [INFO] Épinglage terminé (avec possibles avertissements si OS non FR ou liens non trouvés).
+[2025-04-25 21:52:03] [INFO] Épinglage terminé (avec possibles avertissements si OS non FR ou liens non trouvés).
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Mises à Jour Windows
+================================================================================
+[2025-04-25 21:52:03] [STEP] Début de l'étape : Mises à Jour Windows
+[2025-04-25 21:52:03] [STEP] Début de l'étape : Mises à Jour Windows
+[2025-04-25 21:52:03] [INFO] Tentative de recherche et d'installation des mises à jour Windows...
+[2025-04-25 21:52:03] [INFO] Tentative de recherche et d'installation des mises à jour Windows...
+[2025-04-25 21:52:04] [VERBOSE] Importation du module PSWindowsUpdate...
+[2025-04-25 21:52:04] [INFO] Lancement de Install-WindowsUpdate (accepte tout, inclut autres produits MS, ignore redémarrage)...
+[2025-04-25 21:52:04] [INFO] Lancement de Install-WindowsUpdate (accepte tout, inclut autres produits MS, ignore redémarrage)...
+EN CLAIR : DESKTOP-LPLRTEN (25/04/2025 21:52:39): Connecting to Microsoft Update server. Please wait...
+EN CLAIR : Found [6] Updates in pre search criteria
+EN CLAIR : Found [6] Updates in post search criteria
+EN CLAIR : Accepted [6] Updates ready to Download
+EN CLAIR : Downloaded [6] Updates ready to Install
+EN CLAIR : Installed [6] Updates
+[2025-04-25 22:07:27] [SUCCESS] Commande Install-WindowsUpdate terminée.
+[2025-04-25 22:07:27] [SUCCESS] Commande Install-WindowsUpdate terminée.
+[2025-04-25 22:07:27] [VERBOSE] Résultat: 
+X ComputerName Result     KB          Size Title                                                                                                                                             
+- ------------ ------     --          ---- -----                                                                                                                                             
+3 DESKTOP-L... Installed  KB890830    78MB Outil de suppression de logiciels malveillants Windows x64 - v5.132 (KB890830)                                                                    
+3 DESKTOP-L... Installed  KB4052623   14MB Mise à jour pour Microsoft Defender Antivirus plateforme anti-programme malveillant – Ko4052623 (version 4.18.25030.2) – Canal actuel (large)     
+3 DESKTOP-L... Installed  KB5007651   18MB Mise à jour pour Windows Security platform - KB5007651 (version 10.0.27777.1008)                                                                  
+3 DESKTOP-L... Installed  KB2267602    1GB Mise à jour de la sélection disjointe pour Microsoft Defender Antivirus – 2267602 Ko (version 1.427.456.0) – Canal actuel (large)                 
+3 DESKTOP-L... Installed  KB5054979  143MB 2025-04 Mise à jour cumulative pour .NET Framework 3.5 pour et 4.8.1 pour Windows 11, version 24H2 pour les systèmes x64 (KB5054979)              
+3 DESKTOP-L... Installed  KB5055523   86GB 2025-04 Mise à jour cumulative pour Windows 11 Version 24H2 pour les systèmes x64 (KB5055523)                                                     
+3 DESKTOP-L... Installed  KB890830    78MB Outil de suppression de logiciels malveillants Windows x64 - v5.132 (KB890830)                                                                    
+3 DESKTOP-L... Installed  KB4052623   14MB Mise à jour pour Microsoft Defender Antivirus plateforme anti-programme malveillant – Ko4052623 (version 4.18.25030.2) – Canal actuel (large)     
+3 DESKTOP-L... Installed  KB5007651   18MB Mise à jour pour Windows Security platform - KB5007651 (version 10.0.27777.1008)                                                                  
+3 DESKTOP-L... Installed  KB2267602    1GB Mise à jour de la sélection disjointe pour Microsoft Defender Antivirus – 2267602 Ko (version 1.427.456.0) – Canal actuel (large)                 
+3 DESKTOP-L... Installed  KB5054979  143MB 2025-04 Mise à jour cumulative pour .NET Framework 3.5 pour et 4.8.1 pour Windows 11, version 24H2 pour les systèmes x64 (KB5054979)              
+3 DESKTOP-L... Installed  KB5055523   86GB 2025-04 Mise à jour cumulative pour Windows 11 Version 24H2 pour les systèmes x64 (KB5055523)                                                     
+3 DESKTOP-L... Installed  KB890830    78MB Outil de suppression de logiciels malveillants Windows x64 - v5.132 (KB890830)                                                                    
+3 DESKTOP-L... Installed  KB4052623   14MB Mise à jour pour Microsoft Defender Antivirus plateforme anti-programme malveillant – Ko4052623 (version 4.18.25030.2) – Canal actuel (large)     
+3 DESKTOP-L... Installed  KB5007651   18MB Mise à jour pour Windows Security platform - KB5007651 (version 10.0.27777.1008)                                                                  
+3 DESKTOP-L... Installed  KB2267602    1GB Mise à jour de la sélection disjointe pour Microsoft Defender Antivirus – 2267602 Ko (version 1.427.456.0) – Canal actuel (large)                 
+3 DESKTOP-L... Installed  KB5054979  143MB 2025-04 Mise à jour cumulative pour .NET Framework 3.5 pour et 4.8.1 pour Windows 11, version 24H2 pour les systèmes x64 (KB5054979)              
+3 DESKTOP-L... Installed  KB5055523   86GB 2025-04 Mise à jour cumulative pour Windows 11 Version 24H2 pour les systèmes x64 (KB5055523)
+[2025-04-25 22:07:27] [WARN] ATTENTION: Une ou plusieurs mises à jour installées nécessitent un redémarrage pour être pleinement appliquées.
+[2025-04-25 22:07:27] [WARN] ATTENTION: Une ou plusieurs mises à jour installées nécessitent un redémarrage pour être pleinement appliquées.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Finalisation
+================================================================================
+[2025-04-25 22:07:27] [STEP] Début de l'étape : Finalisation
+[2025-04-25 22:07:27] [STEP] Début de l'étape : Finalisation
+[2025-04-25 22:07:27] [SUCCESS] Le script de déploiement Koesio Aquitaine v4.1.2025 est terminé.
+[2025-04-25 22:07:27] [SUCCESS] Le script de déploiement Koesio Aquitaine v4.1.2025 est terminé.
+[2025-04-25 22:07:27] [INFO] Veuillez vérifier les messages WARN et ERROR dans ce log (C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Logs\Deploy_20250425_212148.log).
+[2025-04-25 22:07:27] [INFO] Veuillez vérifier les messages WARN et ERROR dans ce log (C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.1\Logs\Deploy_20250425_212148.log).
+[2025-04-25 22:07:28] [WARN] Un redémarrage de l'ordinateur est fortement recommandé pour appliquer tous les changements (nom PC, mises à jour, etc.).
+[2025-04-25 22:07:28] [WARN] Un redémarrage de l'ordinateur est fortement recommandé pour appliquer tous les changements (nom PC, mises à jour, etc.).
+**********************
+Fin de la transcription Windows PowerShell
+Heure de fin : 20250425220728
+**********************

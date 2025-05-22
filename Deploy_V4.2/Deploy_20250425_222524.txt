@@ -1,0 +1,691 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250425222527
+Nom d'utilisateur : DESKTOP-LPLRTEN\Utilisateur
+Utilisateur runAs :  DESKTOP-LPLRTEN\Utilisateur
+Nom de la configuration : 
+Ordinateur : DESKTOP-LPLRTEN (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.2\Deploy.ps1
+ID de processus : 7340
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.2\Logs\Deploy_20250425_222524.log
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Vérifications Initiales & Sélection Logiciels
+================================================================================
+[2025-04-25 22:25:27] [STEP] Début de l'étape : Vérifications Initiales & Sélection Logiciels
+[2025-04-25 22:25:27] [INFO] Démarrage du script de déploiement Koesio Aquitaine v4.2.2025
+[2025-04-25 22:25:27] [INFO] Log Level: INFO
+[2025-04-25 22:25:27] [INFO] Vérification des droits administrateur...
+[2025-04-25 22:25:27] [SUCCESS] Droits administrateur confirmés.
+
+--- Sélection des Logiciels Optionnels (avant de continuer) ---
+Entrez les numéros des logiciels à installer, séparés par virgules (ex: 4,6).
+Laissez vide et appuyez sur Entrée pour ne rien installer.
+1.
+Microsoft 365 Apps for Business
+ (Nécessite licence/compte M365. Installation longue.)
+4.
+OpenVPN Connect
+ (ID Corrigé)
+5.
+FortiClient VPN
+ (Vérifier compatibilité version/licence.)
+6.
+VLC Media Player
+
+[2025-04-25 22:25:50] [INFO] Sélection initiale utilisateur pour logiciels optionnels: '1,4'
+[2025-04-25 22:25:50] [INFO] Logiciels optionnels à installer (IDs): office365business, openvpn-connect
+Sélection enregistrée. Le script continue avec les autres étapes...
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Configuration Nom Ordinateur
+================================================================================
+[2025-04-25 22:25:50] [STEP] Début de l'étape : Configuration Nom Ordinateur
+[2025-04-25 22:25:51] [INFO] Utilisation du numéro de série comme nom cible: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 22:25:51] [INFO] Nom actuel: 'DESKTOP-LPLRTEN'. Nom cible: 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'.
+[2025-04-25 22:25:51] [INFO] Tentative de renommage...
+AVERTISSEMENT : Les modifications seront prises en compte après le redémarrage de l'ordinateur DESKTOP-LPLRTEN.
+[2025-04-25 22:25:51] [SUCCESS] Renommage réussi vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'. REDÉMARRAGE REQUIS.
+[2025-04-25 22:25:51] [WARN] NOTE: Le script continue avec l'ancien nom ('DESKTOP-LPLRTEN').
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Configuration Système de Base
+================================================================================
+[2025-04-25 22:25:51] [STEP] Début de l'étape : Configuration Système de Base
+[2025-04-25 22:25:51] [INFO] Configuration des icônes du bureau...
+True
+True
+True
+True
+True
+True
+True
+True
+[2025-04-25 22:25:51] [SUCCESS] Icônes bureau configurées.
+[2025-04-25 22:25:51] [INFO] Activation NumLock au démarrage...
+True
+[2025-04-25 22:25:51] [INFO] Configuration alimentation (Veille Moniteur=60, Disque=0, PC=0)...
+[2025-04-25 22:25:52] [SUCCESS] Paramètres alimentation configurés.
+[2025-04-25 22:25:52] [INFO] Désactivation Démarrage Rapide (Hiberboot)...
+True
+[2025-04-25 22:25:52] [INFO] Nettoyage raccourcis Edge bureaux...
+PS>Erreur de terminaison (Join-Path) : « Impossible de convertir « System.Object[] » en type « System.String », requis par le paramètre « ChildPath ». La méthode spécifiée n'est pas prise en charge. »
+Join-Path : Impossible de convertir «System.Object[]» en type «System.String», requis par le paramètre «ChildPath». La 
+méthode spécifiée n'est pas prise en charge.
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.2\Deploy.ps1:338 : 72
++ ... ment]::GetFolderPath('CommonDesktopDirectory')) 'Microsoft Edge.lnk',
++                                                     ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.PowerShell.Commands.JoinPathCommand
+Join-Path : Impossible de convertir «System.Object[]» en type «System.String», requis par le paramètre «ChildPath». La
+méthode spécifiée n'est pas prise en charge.
+Au caractère C:\Users\Utilisateur\Documents\VBOXSVRDeploy_V4.2\Deploy.ps1:338 : 72
++ ... ment]::GetFolderPath('CommonDesktopDirectory')) 'Microsoft Edge.lnk',
++                                                     ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.PowerShell.Commands.JoinPathCommand
+
+[2025-04-25 22:25:52] [SUCCESS] Configuration système base terminée.
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Gestion BitLocker
+================================================================================
+[2025-04-25 22:25:52] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 22:25:52] [INFO] Vérification état BitLocker...
+AVERTISSEMENT : Les noms de certaines commandes importées du module « BitLocker » contiennent des verbes non approuvés qui peuvent les rendre moins détectables. Pour trouver les commandes comportant des verbes non approuvés, réexécutez la commande Import-Module avec le paramètre Verbose. Pour obtenir la liste des verbes approuvés, tapez Get-Verb.
+[2025-04-25 22:25:54] [INFO] Volume 'C:': Statut='FullyEncrypted', Type='OperatingSystem', Chiffré=100%
+[2025-04-25 22:25:54] [INFO] Volume 'C:' est 'FullyEncrypted'.
+[2025-04-25 22:25:54] [INFO] Aucune clé récupération (Password) trouvée pour 'C:'.
+[2025-04-25 22:25:54] [INFO] Tentative désactivation permanente BitLocker pour 'C:'...
+
+
+   ComputerName : DESKTOP-LPLRTEN
+
+VolumeType      Mount CapacityGB VolumeStatus           Encryption KeyProtector              AutoUnlock Protection
+                Point                                   Percentage                           Enabled    Status
+----------      ----- ---------- ------------           ---------- ------------              ---------- ----------
+OperatingSystem C:         79,24 FullyEncrypted         100        {}                                   Off
+[2025-04-25 22:25:54] [SUCCESS] Protection BitLocker suspendue.
+[2025-04-25 22:25:54] [INFO] Lancement déchiffrement 'C:' (Disable-BitLocker)...
+OperatingSystem C:         79,24 DecryptionInProgress   19         {}                                   Off
+[2025-04-25 22:25:55] [SUCCESS] Déchiffrement INITIÉ pour 'C:'. Peut prendre du temps.
+[2025-04-25 22:25:55] [INFO] Vérifier progression avec 'manage-bde -status C:'.
+[2025-04-25 22:25:55] [WARN] ATTENTION: Des GPO pourraient réactiver BitLocker.
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Installation Chocolatey & Logiciels
+================================================================================
+[2025-04-25 22:25:55] [STEP] Début de l'étape : Installation Chocolatey & Logiciels
+[2025-04-25 22:25:55] [INFO] Vérification Chocolatey...
+[2025-04-25 22:25:58] [INFO] Chocolatey non trouvé. Installation...
+Forcing web requests to allow TLS v1.2 (Required for requests to Chocolatey.org)
+Getting latest version of the Chocolatey package for download.
+Not using proxy.
+Getting Chocolatey from https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3.
+Downloading https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3 to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip
+Not using proxy.
+Extracting C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall
+Installing Chocolatey on the local machine
+Creating ChocolateyInstall as an environment variable (targeting 'Machine') 
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell 
+  before you can use choco.
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey CLI folders if they do not already exist.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+AVERTISSEMENT : Not setting tab completion: Profile file does not exist at 'C:\Users\Utilisateur\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+Chocolatey CLI (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring Chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder
+[2025-04-25 22:26:55] [SUCCESS] Chocolatey installé avec succès.
+[2025-04-25 22:26:55] [INFO] Installation logiciels de base via Choco (googlechrome, firefox, adobereader, 7zip.install, teamviewer, openjdk, dotnetfx)...
+[2025-04-25 22:27:02] [INFO] Installation googlechrome...
+Installing the following packages:
+googlechrome;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-compatibility.extension v1.0.0 [Approved]
+chocolatey-compatibility.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-compatibility extensions.
+ The install of chocolatey-compatibility.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-compatibility'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-core.extension v1.4.0 [Approved]
+chocolatey-core.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-core extensions.
+ The install of chocolatey-core.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-core'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+GoogleChrome v135.0.7049.96 [Approved]
+GoogleChrome package files install completed. Performing other installation steps.
+Downloading googlechrome 64 bit
+  from 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi'
+
+Download of googlechromestandaloneenterprise64.msi (126.73 MB) completed.
+WARNING: Ignoring checksums due to feature checksumFiles turned off or option --ignore-checksums set.
+Installing googlechrome...
+googlechrome has been installed.
+  GoogleChrome may be able to be automatically uninstalled.
+ The install of GoogleChrome was successful.
+  Software installed as 'MSI', install location is likely default.
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 3/4 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:29:21] [SUCCESS] googlechrome installé avec succès.
+[2025-04-25 22:29:25] [INFO] Installation firefox...
+Installing the following packages:
+firefox;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+Firefox v137.0.2 [Approved]
+Firefox package files install completed. Performing other installation steps.
+Using locale 'fr'...
+Downloading Firefox 64 bit
+  from 'https://download.mozilla.org/?product=firefox-137.0.2-ssl&os=win64&lang=fr'
+
+Download of Firefox Setup 137.0.2.exe (68.85 MB) completed.
+Hashes match.
+Installing Firefox...
+Firefox has been installed.
+WARNING: No registry key found based on  'Mozilla Firefox'
+  Firefox may be able to be automatically uninstalled.
+ The install of Firefox was successful.
+  Deployed to 'C:\Program Files\Mozilla Firefox'
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 1/2 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:30:13] [SUCCESS] firefox installé avec succès.
+[2025-04-25 22:30:17] [INFO] Installation adobereader...
+Installing the following packages:
+adobereader;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919442 v1.0.20160915 [Approved]
+KB2919442 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919442 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919355 v1.0.20160915 [Approved]
+KB2919355 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919355 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+adobereader v2025.1.20432
+adobereader package files install completed. Performing other installation steps.
+WARNING: No registry key found based on  'Adobe Acrobat*'
+Configuring manual update checks and installs.
+Downloading adobereader 64 bit
+  from 'https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2500120432/AcroRdrDCx642500120432_MUI.exe'
+
+Download of AcroRdrDCx642500120432_MUI.exe (674.3 MB) completed.
+Hashes match.
+Installing adobereader (installer)...
+adobereader (installer) has been installed.
+  adobereader may be able to be automatically uninstalled.
+ The install of adobereader was successful.
+  Deployed to 'C:\Program Files\Adobe\Acrobat DC\'
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 3/4 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:35:37] [SUCCESS] adobereader installé avec succès.
+[2025-04-25 22:35:40] [INFO] Installation 7zip.install...
+Installing the following packages:
+7zip.install;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+7zip.install v24.9.0 [Approved]
+7zip.install package files install completed. Performing other installation steps.
+Installing 64 bit version
+Installing 7zip.install...
+7zip.install has been installed.
+7zip installed to 'C:\Program Files\7-Zip'
+Added C:\ProgramData\chocolatey\bin\7z.exe shim pointed to 'c:\program files\7-zip\7z.exe'.
+  7zip.install can be automatically uninstalled.
+ The install of 7zip.install was successful.
+  Deployed to 'C:\Program Files\7-Zip\'
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 1/2 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:35:58] [SUCCESS] 7zip.install installé avec succès.
+[2025-04-25 22:36:01] [INFO] Installation teamviewer...
+Installing the following packages:
+teamviewer;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+teamviewer v15.64.3 [Approved]
+teamviewer package files install completed. Performing other installation steps.
+Downloading teamviewer 64 bit
+  from 'https://download.teamviewer.com/download/version_15x/TeamViewer_Setup_x64.exe'
+
+Download of TeamViewer_Setup_x64.exe (72 MB) completed.
+Hashes match.
+Installing teamviewer...
+teamviewer has been installed.
+  teamviewer may be able to be automatically uninstalled.
+ The install of teamviewer was successful.
+  Deployed to 'C:\Program Files\TeamViewer'
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 1/2 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:37:22] [SUCCESS] teamviewer installé avec succès.
+[2025-04-25 22:37:27] [INFO] Installation openjdk...
+Installing the following packages:
+openjdk;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+openjdk v22.0.2 [Approved]
+openjdk package files install completed. Performing other installation steps.
+Downloading openjdk 64 bit
+  from 'https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bin.zip'
+
+Download of openjdk-22.0.2_windows-x64_bin.zip (191.28 MB) completed.
+Hashes match.
+Extracting C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\openjdk\22.0.2\openjdk-22.0.2_windows-x64_bin.zip to C:\Program Files\OpenJDK...
+C:\Program Files\OpenJDK
+PATH environment variable does not have C:\Program Files\OpenJDK\jdk-22.0.2\bin in it. Adding...
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of openjdk was successful.
+  Deployed to 'C:\Program Files\OpenJDK'
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 1/2 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:38:01] [SUCCESS] openjdk installé avec succès.
+[2025-04-25 22:38:04] [INFO] Installation dotnetfx...
+Installing the following packages:
+dotnetfx;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-dotnetfx.extension v1.0.1
+chocolatey-dotnetfx.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-dotnetfx extensions.
+ The install of chocolatey-dotnetfx.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-dotnetfx'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+dotnetfx v4.8.0.20220524 [Approved]
+dotnetfx package files install completed. Performing other installation steps.
+Microsoft .NET Framework 4.8 or later is already installed.
+ The install of dotnetfx was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 2/3 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:38:17] [SUCCESS] dotnetfx installé avec succès.
+[2025-04-25 22:38:17] [SUCCESS] Installation logiciels base terminée (vérifiez WARN/ERROR).
+[2025-04-25 22:38:17] [INFO] Installation logiciels optionnels pré-sélectionnés (office365business, openvpn-connect)...
+[2025-04-25 22:38:21] [INFO] Installation Microsoft 365 Apps for Business (office365business)...
+[2025-04-25 22:38:21] [INFO] Note: L'installation de Microsoft 365 peut prendre beaucoup de temps...
+Installing the following packages:
+office365business;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+office365business v18623.20156.0 [Approved]
+office365business package files install completed. Performing other installation steps.
+No custom configuration specified. Generating one...
+No Product ID specified, using default: O365BusinessRetail
+No excluded apps specified, installing all
+No Language ID specified, using default: MatchOS
+No updates value specified, using default: TRUE
+No eula value specified, using default: TRUE
+C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\Office365Business
+Add
+Updates
+Display
+Logging
+RemoveMSI
+Downloading Office365DeploymentTool
+  from 'https://download.microsoft.com/download/6c1eeb25-cf8b-41d9-8d0d-cc1dbc032140/officedeploymenttool_18623-20156.exe'
+
+Download of officedeploymenttool_18623-20156.exe (3.62 MB) completed.
+Hashes match.
+Installing Office365DeploymentTool...
+Office365DeploymentTool has been installed.
+Installing Office365BusinessInstaller...
+Office365BusinessInstaller has been installed.
+Installing Office365Business...
+Office365Business has been installed.
+Cannot remove item C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\Office365Business: The process cannot access the file 'C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\Office365Busin
+ess' because it is being used by another process.
+Only an exit code of non-zero will fail the package by default. Set
+ `--failonstderr` if you want error messages to also fail a script. See
+ `choco -h` for details.
+  office365business may be able to be automatically uninstalled.
+ The install of office365business was successful.
+  Deployed to 'C:\Program Files\Microsoft Office'
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 1/2 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:52:35] [SUCCESS] Microsoft 365 Apps for Business (office365business) installé avec succès.
+[2025-04-25 22:52:39] [INFO] Installation OpenVPN Connect (openvpn-connect)...
+Installing the following packages:
+openvpn-connect;Stop
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+openvpn-connect v3.6.0 [Approved]
+openvpn-connect package files install completed. Performing other installation steps.
+Downloading openvpn-connect
+  from 'https://swupdate.openvpn.net/downloads/connect/openvpn-connect-3.6.0.4074_signed.msi'
+
+Download of openvpn-connect.msi (98.18 MB) completed.
+Hashes match.
+C:\ProgramData\chocolatey\lib\openvpn-connect\tools\openvpn-connect.msi
+TrustedPublisher "�diteurs approuv�s"
+Le certificat "OpenVPN Inc." a �t� ajout� au magasin.
+CertUtil: -addstore La commande s�est termin�e correctement.
+Installing 64-bit openvpn-connect...
+openvpn-connect has been installed.
+  openvpn-connect may be able to be automatically uninstalled.
+ The install of openvpn-connect was successful.
+  Software installed as 'MSI', install location is likely default.
+Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+
+Chocolatey installed 1/2 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - Stop - Stop not installed. The package was not found with the source(s) listed.
+ Source(s): 'https://community.chocolatey.org/api/v2/'
+ NOTE: When you specify explicit sources, it overrides default sources.
+If the package version is a prerelease and you didn't specify `--pre`,
+ the package may not be found.
+Please see https://docs.chocolatey.org/en-us/troubleshooting for more
+ assistance.
+[2025-04-25 22:53:35] [SUCCESS] OpenVPN Connect (openvpn-connect) installé avec succès.
+[2025-04-25 22:53:35] [SUCCESS] Installation logiciels optionnels terminée.
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Configuration Confidentialité & Optimisation
+================================================================================
+[2025-04-25 22:53:36] [STEP] Début de l'étape : Configuration Confidentialité & Optimisation
+[2025-04-25 22:53:36] [INFO] Configuration paramètres confidentialité Windows...
+True
+True
+True
+True
+True
+True
+True
+[2025-04-25 22:53:36] [SUCCESS] Paramètres confidentialité OK.
+[2025-04-25 22:53:36] [INFO] Désactivation Fonctionnalités Jeu (Game Bar, Mode Jeu)...
+True
+True
+[2025-04-25 22:53:36] [SUCCESS] Fonctionnalités Jeu désactivées.
+[2025-04-25 22:53:36] [INFO] Activation MàJ autres produits Microsoft & PSWindowsUpdate...
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:36] [WARN] Registre: ECHEC Set 'AllowMUUpdateService' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:36] [WARN] Registre: ECHEC Set 'IncludeRecommendedUpdates' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+[2025-04-25 22:53:36] [INFO] Installation module PSWindowsUpdate...
+[2025-04-25 22:53:54] [SUCCESS] Module PSWindowsUpdate installé.
+[2025-04-25 22:53:54] [INFO] Configuration Optimisation Livraison (Pas de Peer)...
+True
+[2025-04-25 22:53:54] [SUCCESS] Optimisation Livraison configurée.
+[2025-04-25 22:53:54] [INFO] Désactivation apps au démarrage (OneDrive, Edge, Copilot)...
+True
+True
+True
+True
+[2025-04-25 22:53:54] [SUCCESS] Apps démarrage désactivées/limitées.
+[2025-04-25 22:53:54] [INFO] Suppression 'Premier Lancement' (Chrome, Firefox, Adobe)...
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:54] [WARN] Registre: ECHEC Set 'SuppressFirstRunDefaultBrowserPrompt' dans 'HKLM\SOFTWARE\Policies\Google\Chrome'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:54] [WARN] Registre: ECHEC Set 'HideFirstRunBubble' dans 'HKLM\SOFTWARE\Policies\Google\Chrome'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:54] [WARN] Registre: ECHEC Set 'DisableAppUpdate' dans 'HKLM\SOFTWARE\Policies\Mozilla\Firefox'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:54] [WARN] Registre: ECHEC Set 'OfferToSaveLogins' dans 'HKLM\SOFTWARE\Policies\Mozilla\Firefox'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:55] [WARN] Registre: ECHEC Set 'bShowWelcomeScreen' dans 'HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-ItemProperty) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur. »
+[2025-04-25 22:53:55] [WARN] Registre: ECHEC Set 'bShowAdsAllow' dans 'HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown'. Erreur: Impossible d'utiliser l'interface. L'interface IDynamicPropertyCmdletProvider n'est pas implémentée par ce fournisseur.
+False
+PS>Erreur de terminaison (New-Item) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible de trouver une partie du chemin d'accès 'C:\WINDOWS\system32\HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'. »
+[2025-04-25 22:53:55] [WARN] Registre: ECHEC Set 'bToggleAdobeDocumentServices' dans 'HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'. Erreur: Impossible de trouver une partie du chemin d'accès 'C:\WINDOWS\system32\HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'.
+False
+PS>Erreur de terminaison (New-Item) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible de trouver une partie du chemin d'accès 'C:\WINDOWS\system32\HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'. »
+[2025-04-25 22:53:55] [WARN] Registre: ECHEC Set 'bToggleAdobeSign' dans 'HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'. Erreur: Impossible de trouver une partie du chemin d'accès 'C:\WINDOWS\system32\HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'.
+False
+PS>Erreur de terminaison (New-Item) : « L’exécution de la commande s’est arrêtée, car la variable de préférence « ErrorActionPreference » ou le paramètre courant a la valeur Stop : Impossible de trouver une partie du chemin d'accès 'C:\WINDOWS\system32\HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'. »
+[2025-04-25 22:53:55] [WARN] Registre: ECHEC Set 'bToggleSendAndTrack' dans 'HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'. Erreur: Impossible de trouver une partie du chemin d'accès 'C:\WINDOWS\system32\HKLM\SOFTWARE\Policies\Adobe\Acrobat Reader\DC\FeatureLockDown\cServices'.
+False
+[2025-04-25 22:53:55] [SUCCESS] Tentatives suppression 'Premier Lancement' effectuées.
+[2025-04-25 22:53:55] [SUCCESS] Configuration Confidentialité & Optimisation terminée.
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Installation Outils Fabricant
+================================================================================
+[2025-04-25 22:53:55] [STEP] Début de l'étape : Installation Outils Fabricant
+[2025-04-25 22:53:55] [INFO] Vérification outils fabricant...
+[2025-04-25 22:53:55] [INFO] Fabricant détecté: innotek GmbH
+[2025-04-25 22:53:55] [INFO] Aucun traitement spécifique pour 'innotek GmbH'.
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Installation GoToAssist
+================================================================================
+[2025-04-25 22:53:55] [STEP] Début de l'étape : Installation GoToAssist
+[2025-04-25 22:53:55] [INFO] Installation GoToAssist depuis Data...
+[2025-04-25 22:53:55] [SUCCESS] GoToAssist.exe copié.
+[2025-04-25 22:53:55] [SUCCESS] Raccourci créé: 'C:\Users\Public\Desktop\GoToAssist.lnk'
+True
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Configuration Informations OEM
+================================================================================
+[2025-04-25 22:53:55] [STEP] Début de l'étape : Configuration Informations OEM
+[2025-04-25 22:53:55] [INFO] Configuration informations OEM...
+True
+True
+True
+True
+[2025-04-25 22:53:55] [SUCCESS] Informations OEM configurées.
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Création Raccourcis & Épinglage
+================================================================================
+[2025-04-25 22:53:55] [STEP] Début de l'étape : Création Raccourcis & Épinglage
+[2025-04-25 22:53:55] [WARN] *** AVERTISSEMENT: Épinglage barre des tâches nécessite OS en Français. ***
+[2025-04-25 22:53:55] [INFO] Création raccourci Adobe Reader...
+[2025-04-25 22:53:55] [SUCCESS] Raccourci créé: 'C:\Users\Public\Desktop\Adobe Acrobat Reader DC.lnk'
+True
+[2025-04-25 22:53:55] [INFO] Tentative épinglage Chrome, Firefox, Adobe Reader (OS FR requis)...
+[2025-04-25 22:53:57] [WARN] Verbe 'Épingler à la barre des tâches' non trouvé pour Google Chrome. OS non FR ou déjà épinglé?
+[2025-04-25 22:53:57] [WARN] Verbe 'Épingler à la barre des tâches' non trouvé pour Mozilla Firefox. OS non FR ou déjà épinglé?
+[2025-04-25 22:53:57] [WARN] Lien 'Adobe Acrobat Reader DC.lnk' non trouvé pour Adobe Reader dans chemins connus. Impossible d'épingler.
+[2025-04-25 22:53:57] [INFO] Épinglage terminé (vérifier WARN).
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Définition PDF par défaut (Adobe)
+================================================================================
+[2025-04-25 22:53:57] [STEP] Début de l'étape : Définition PDF par défaut (Adobe)
+[2025-04-25 22:53:57] [WARN] *** AVERTISSEMENT: La définition du gestionnaire PDF par défaut est une tentative et peut échouer. ***
+[2025-04-25 22:53:57] [INFO] Tentative de définition d'Adobe Reader comme application PDF par défaut via assoc/ftype...
+.pdf=Acrobat.Document.DC
+[2025-04-25 22:53:58] [SUCCESS] Association .pdf effectuée (vérifier résultat manuellement).
+
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.2.2025 | Étape : Mises à Jour Windows
+================================================================================
+[2025-04-25 22:53:58] [STEP] Début de l'étape : Mises à Jour Windows
+[2025-04-25 22:53:58] [INFO] Recherche et installation MàJ Windows (peut être long)...
+[2025-04-25 22:53:59] [INFO] Lancement Install-WindowsUpdate (-MicrosoftUpdate -AcceptAll -IgnoreReboot)...

@@ -1,0 +1,136 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250425201725
+Nom d'utilisateur : DESKTOP-LPLRTEN\Utilisateur
+Utilisateur runAs :  DESKTOP-LPLRTEN\Utilisateur
+Nom de la configuration : 
+Ordinateur : DESKTOP-LPLRTEN (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File \\VBOXSVR\Deploy_V3.5\Deploy.ps1 
+ID de processus : 11160
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est \\VBOXSVR\Deploy_V3.5\Logs\Deploy_20250425_201723.log
+[2025-04-25 20:18:28] [INFO] Vérification droits administrateur...
+[2025-04-25 20:18:28] [SUCCESS] Droits admin confirmés.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.7.2025
+                            Étape : Vérifications initiales
+
+
+[2025-04-25 20:18:28] [STEP] Début de l'étape : Vérifications initiales
+[2025-04-25 20:18:28] [INFO] Script déploiement Koesio v3.7.2025 (PRO) démarré.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.7.2025
+                            Étape : Configuration nom PC
+
+
+[2025-04-25 20:18:28] [STEP] Début de l'étape : Configuration nom PC
+[2025-04-25 20:18:29] [INFO] Actuel: DESKTOP-LPLRTEN | Fabricant: innotek GmbH | S/N: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 20:18:31] [INFO] Renommage vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'...
+AVERTISSEMENT : Les modifications seront prises en compte après le redémarrage de l'ordinateur DESKTOP-LPLRTEN.
+[2025-04-25 20:18:31] [SUCCESS] Renommage réussi. Redémarrage nécessaire.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.7.2025
+                            Étape : Configuration Système Base
+
+
+[2025-04-25 20:18:31] [STEP] Début de l'étape : Configuration Système Base
+[2025-04-25 20:18:31] [INFO] Config icônes bureau, NumLock, alim, nettoyage bureau...
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « PropertyType ». »
+[2025-04-25 20:18:32] [WARN] Erreur clé registre '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'. Erreur: Impossible de trouver un paramètre correspondant au nom « PropertyType ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « PropertyType ». »
+[2025-04-25 20:18:32] [WARN] Erreur clé registre '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'. Erreur: Impossible de trouver un paramètre correspondant au nom « PropertyType ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « PropertyType ». »
+[2025-04-25 20:18:32] [WARN] Erreur clé registre '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'. Erreur: Impossible de trouver un paramètre correspondant au nom « PropertyType ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « PropertyType ». »
+[2025-04-25 20:18:32] [WARN] Erreur clé registre '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'. Erreur: Impossible de trouver un paramètre correspondant au nom « PropertyType ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « PropertyType ». »
+[2025-04-25 20:18:32] [WARN] Erreur clé registre 'InitialKeyboardIndicators' dans 'Registry::HKEY_USERS\.DEFAULT\Control Panel\Keyboard'. Erreur: Impossible de trouver un paramètre correspondant au nom « PropertyType ».
+False
+[2025-04-25 20:18:32] [INFO] Alim: Écran 60min, Disque Jamais, Veille Jamais, Démarrage Rapide OFF
+
+
+
+
+
+
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « PropertyType ». »
+[2025-04-25 20:18:32] [WARN] Erreur clé registre 'HiberbootEnabled' dans 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power'. Erreur: Impossible de trouver un paramètre correspondant au nom « PropertyType ».
+False
+[2025-04-25 20:18:32] [SUCCESS] Params alim & démarrage rapide configurés.
+[2025-04-25 20:18:32] [INFO] Nettoyage raccourcis bureau...
+[2025-04-25 20:18:32] [SUCCESS] Config système base terminée.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.7.2025
+                            Étape : Gestion BitLocker
+
+
+[2025-04-25 20:18:32] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 20:18:34] [INFO] Volume C: - Statut: EncryptionInProgress
+[2025-04-25 20:18:34] [WARN] Volume C: chiffré.
+[2025-04-25 20:18:34] [INFO] Récupération clé...
+[2025-04-25 20:18:34] [WARN] Clé récupération numérique introuvable.
+[2025-04-25 20:18:35] [INFO] Lancement déchiffrement permanent...
+PS>Erreur de terminaison (Clear-BitLockerAutoUnlock) : « Impossible de trouver un paramètre correspondant au nom « MountPoint ». »
+[2025-04-25 20:18:35] [ERROR] Erreur désactivation BitLocker pour C:. Erreur: Impossible de trouver un paramètre correspondant au nom « MountPoint ».
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.7.2025
+                            Étape : Installation Logiciels Base (Choco)
+
+
+[2025-04-25 20:18:35] [STEP] Début de l'étape : Installation Logiciels Base (Choco)
+[2025-04-25 20:18:35] [INFO] Vérification/Installation Chocolatey...
+[2025-04-25 20:18:37] [INFO] Installation Chocolatey...
+Forcing web requests to allow TLS v1.2 (Required for requests to Chocolatey.org)
+Getting latest version of the Chocolatey package for download.
+Not using proxy.
+Getting Chocolatey from https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3.
+Downloading https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3 to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip
+Not using proxy.
+Extracting C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall
+Installing Chocolatey on the local machine
+Creating ChocolateyInstall as an environment variable (targeting 'Machine') 
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell 
+  before you can use choco.
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey CLI folders if they do not already exist.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+AVERTISSEMENT : Not setting tab completion: Profile file does not exist at 'C:\Users\Utilisateur\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+Chocolatey CLI (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring Chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder
+[2025-04-25 20:18:58] [SUCCESS] Chocolatey installé.
+[2025-04-25 20:18:58] [INFO] Installation paquets BASE requis: firefox, googlechrome, adobereader, 7zip.install, teamviewer, openjdk, dotnetfx
+[2025-04-25 20:18:58] [INFO] Installation firefox...
+[2025-04-25 20:19:58] [SUCCESS] firefox installé.
+[2025-04-25 20:19:58] [INFO] Installation googlechrome...
+[2025-04-25 20:20:25] [WARN] Échec install googlechrome (Tentative 1). ExitCode: -1. Error Output:
+[2025-04-25 20:20:25] [WARN] Échec Choco pour Chrome. Tentative 3: Téléchargement Manuel + MSIExec...

@@ -1,0 +1,499 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250425195754
+Nom d'utilisateur : DESKTOP-LPLRTEN\Utilisateur
+Utilisateur runAs :  DESKTOP-LPLRTEN\Utilisateur
+Nom de la configuration : 
+Ordinateur : DESKTOP-LPLRTEN (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\Utilisateur\Documents\Deploy\Deploy.ps1 
+ID de processus : 10184
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est C:\Users\Utilisateur\Documents\Deploy\Logs\Deploy_20250425_195752.log
+[2025-04-25 19:57:54] [INFO] Vérification droits administrateur...
+[2025-04-25 19:57:54] [SUCCESS] Droits admin confirmés.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Vérifications initiales
+
+
+[2025-04-25 19:57:55] [STEP] Début de l'étape : Vérifications initiales
+[2025-04-25 19:57:55] [INFO] Script déploiement Koesio v3.6.2025 (PRO) démarré.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Configuration nom PC
+
+
+[2025-04-25 19:57:55] [STEP] Début de l'étape : Configuration nom PC
+[2025-04-25 19:57:56] [INFO] Actuel: DESKTOP-LPLRTEN | Fabricant: innotek GmbH | S/N: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 19:57:57] [INFO] Renommage vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'...
+AVERTISSEMENT : Les modifications seront prises en compte après le redémarrage de l'ordinateur DESKTOP-LPLRTEN.
+[2025-04-25 19:57:58] [SUCCESS] Renommage réussi. Redémarrage nécessaire.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Configuration Système Base
+
+
+[2025-04-25 19:57:58] [STEP] Début de l'étape : Configuration Système Base
+[2025-04-25 19:57:58] [INFO] Config icônes bureau, NumLock, alim, nettoyage bureau...
+True
+True
+True
+True
+True
+[2025-04-25 19:57:58] [INFO] Alim: Écran 60min, Disque Jamais, Veille Jamais, Démarrage Rapide OFF
+
+
+
+
+
+
+True
+[2025-04-25 19:57:59] [SUCCESS] Params alim & démarrage rapide configurés.
+[2025-04-25 19:57:59] [INFO] Nettoyage raccourcis bureau...
+[2025-04-25 19:57:59] [SUCCESS] Config système base terminée.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Gestion BitLocker
+
+
+[2025-04-25 19:57:59] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 19:58:00] [INFO] Volume C: - Statut: EncryptionInProgress
+[2025-04-25 19:58:00] [WARN] Volume C: chiffré.
+[2025-04-25 19:58:00] [INFO] Récupération clé...
+[2025-04-25 19:58:01] [WARN] Clé récupération numérique introuvable.
+[2025-04-25 19:58:07] [INFO] Lancement déchiffrement permanent...
+PS>Erreur de terminaison (Clear-BitLockerAutoUnlock) : « Impossible de trouver un paramètre correspondant au nom « MountPoint ». »
+[2025-04-25 19:58:07] [ERROR] Erreur désactivation BitLocker. Erreur: Impossible de trouver un paramètre correspondant au nom « MountPoint ».
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Installation Logiciels Base (Choco)
+
+
+[2025-04-25 19:58:07] [STEP] Début de l'étape : Installation Logiciels Base (Choco)
+[2025-04-25 19:58:07] [INFO] Vérification/Installation Chocolatey...
+[2025-04-25 19:58:10] [INFO] Installation Chocolatey...
+Forcing web requests to allow TLS v1.2 (Required for requests to Chocolatey.org)
+Getting latest version of the Chocolatey package for download.
+Not using proxy.
+Getting Chocolatey from https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3.
+Downloading https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3 to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip
+Not using proxy.
+Extracting C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall
+Installing Chocolatey on the local machine
+Creating ChocolateyInstall as an environment variable (targeting 'Machine') 
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell 
+  before you can use choco.
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey CLI folders if they do not already exist.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+AVERTISSEMENT : Not setting tab completion: Profile file does not exist at 'C:\Users\Utilisateur\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+Chocolatey CLI (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring Chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder
+[2025-04-25 19:58:38] [SUCCESS] Chocolatey installé.
+[2025-04-25 19:58:38] [INFO] Installation paquets BASE requis: firefox, googlechrome, adobereader, 7zip.install, teamviewer, openjdk, dotnetfx
+[2025-04-25 19:58:38] [INFO] Installation firefox...
+Installing the following packages:
+firefox
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-compatibility.extension v1.0.0 [Approved]
+chocolatey-compatibility.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-compatibility extensions.
+ The install of chocolatey-compatibility.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-compatibility'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-core.extension v1.4.0 [Approved]
+chocolatey-core.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-core extensions.
+ The install of chocolatey-core.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-core'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+Firefox v137.0.2 [Approved]
+Firefox package files install completed. Performing other installation steps.
+Using locale 'fr'...
+Downloading Firefox 64 bit
+  from 'https://download.mozilla.org/?product=firefox-137.0.2-ssl&os=win64&lang=fr'
+
+Download of Firefox Setup 137.0.2.exe (68.85 MB) completed.
+Hashes match.
+Installing Firefox...
+Firefox has been installed.
+WARNING: No registry key found based on  'Mozilla Firefox'
+  Firefox may be able to be automatically uninstalled.
+ The install of Firefox was successful.
+  Deployed to 'C:\Program Files\Mozilla Firefox'
+
+Chocolatey installed 3/3 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:00:18] [SUCCESS] firefox installé.
+[2025-04-25 20:00:18] [INFO] Installation googlechrome...
+Installing the following packages:
+googlechrome
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+GoogleChrome v135.0.7049.96 [Approved]
+GoogleChrome package files install completed. Performing other installation steps.
+Downloading googlechrome 64 bit
+  from 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi'
+
+Download of googlechromestandaloneenterprise64.msi (126.73 MB) completed.
+Error - hashes do not match. Actual value was '87DCDBABE7F93BB66F8636CC18DCD852D254044A68E74F3C41D1D6C03E7D1BDF'.
+ERROR: Checksum for 'C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\GoogleChrome\135.0.7049.96\googlechromestandaloneenterprise64.msi' did not meet '020d946e9d3be75242f672830f6b6dd335d49
+aa34e5030864690e539b579f176' for checksum type 'sha256'. Consider passing the actual checksums through with --checksum --checksum64 once you validate the checksums are appropriate. A less se
+cure option is to pass --ignore-checksums if necessary.
+The install of GoogleChrome was NOT successful.
+Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+ See log for details.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - GoogleChrome (exited -1) - Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+ See log for details.
+[2025-04-25 20:00:43] [INFO] Installation adobereader...
+Installing the following packages:
+adobereader
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919442 v1.0.20160915 [Approved]
+KB2919442 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919442 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+KB2919355 v1.0.20160915 [Approved]
+KB2919355 package files install completed. Performing other installation steps.
+Skipping installation because this hotfix only applies to Windows 8.1 and Windows Server 2012 R2.
+ The install of KB2919355 was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+adobereader v2025.1.20432
+adobereader package files install completed. Performing other installation steps.
+WARNING: No registry key found based on  'Adobe Acrobat*'
+Configuring manual update checks and installs.
+Downloading adobereader 64 bit
+  from 'https://ardownload2.adobe.com/pub/adobe/acrobat/win/AcrobatDC/2500120432/AcroRdrDCx642500120432_MUI.exe'
+
+Download of AcroRdrDCx642500120432_MUI.exe (674.3 MB) completed.
+Hashes match.
+Installing adobereader (installer)...
+adobereader (installer) has been installed.
+  adobereader may be able to be automatically uninstalled.
+ The install of adobereader was successful.
+  Deployed to 'C:\Program Files\Adobe\Acrobat DC\'
+
+Chocolatey installed 3/3 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:04:57] [SUCCESS] adobereader installé.
+[2025-04-25 20:04:57] [INFO] Installation 7zip.install...
+Installing the following packages:
+7zip.install
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+7zip.install v24.9.0 [Approved]
+7zip.install package files install completed. Performing other installation steps.
+Installing 64 bit version
+Installing 7zip.install...
+7zip.install has been installed.
+7zip installed to 'C:\Program Files\7-Zip'
+Added C:\ProgramData\chocolatey\bin\7z.exe shim pointed to 'c:\program files\7-zip\7z.exe'.
+  7zip.install can be automatically uninstalled.
+ The install of 7zip.install was successful.
+  Deployed to 'C:\Program Files\7-Zip\'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:05:13] [SUCCESS] 7zip.install installé.
+[2025-04-25 20:05:13] [INFO] Installation teamviewer...
+Installing the following packages:
+teamviewer
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+teamviewer v15.64.3 [Approved]
+teamviewer package files install completed. Performing other installation steps.
+Downloading teamviewer 64 bit
+  from 'https://download.teamviewer.com/download/version_15x/TeamViewer_Setup_x64.exe'
+
+Download of TeamViewer_Setup_x64.exe (72 MB) completed.
+Hashes match.
+Installing teamviewer...
+teamviewer has been installed.
+  teamviewer may be able to be automatically uninstalled.
+ The install of teamviewer was successful.
+  Deployed to 'C:\Program Files\TeamViewer'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:06:09] [SUCCESS] teamviewer installé.
+[2025-04-25 20:06:09] [INFO] Installation openjdk...
+Installing the following packages:
+openjdk
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+openjdk v22.0.2 [Approved]
+openjdk package files install completed. Performing other installation steps.
+Downloading openjdk 64 bit
+  from 'https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bin.zip'
+
+Download of openjdk-22.0.2_windows-x64_bin.zip (191.28 MB) completed.
+Hashes match.
+Extracting C:\Users\Utilisateur\AppData\Local\Temp\chocolatey\openjdk\22.0.2\openjdk-22.0.2_windows-x64_bin.zip to C:\Program Files\OpenJDK...
+C:\Program Files\OpenJDK
+PATH environment variable does not have C:\Program Files\OpenJDK\jdk-22.0.2\bin in it. Adding...
+Environment Vars (like PATH) have changed. Close/reopen your shell to
+ see the changes (or in powershell/cmd.exe just type `refreshenv`).
+ The install of openjdk was successful.
+  Deployed to 'C:\Program Files\OpenJDK'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:06:40] [SUCCESS] openjdk installé.
+[2025-04-25 20:06:40] [INFO] Installation dotnetfx...
+Installing the following packages:
+dotnetfx
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+chocolatey-dotnetfx.extension v1.0.1
+chocolatey-dotnetfx.extension package files install completed. Performing other installation steps.
+ Installed/updated chocolatey-dotnetfx extensions.
+ The install of chocolatey-dotnetfx.extension was successful.
+  Deployed to 'C:\ProgramData\chocolatey\extensions\chocolatey-dotnetfx'
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+
+dotnetfx v4.8.0.20220524 [Approved]
+dotnetfx package files install completed. Performing other installation steps.
+Microsoft .NET Framework 4.8 or later is already installed.
+ The install of dotnetfx was successful.
+  Software install location not explicitly set, it could be in package or
+  default install location of installer.
+
+Chocolatey installed 2/2 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+[2025-04-25 20:06:54] [SUCCESS] dotnetfx installé.
+[2025-04-25 20:06:54] [SUCCESS] Installation logiciels BASE terminée.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Sélection Logiciels Optionnels
+
+
+[2025-04-25 20:06:54] [STEP] Début de l'étape : Sélection Logiciels Optionnels
+
+--- Logiciels Optionnels Disponibles ---
+
+1
+.
+Microsoft 365 Business
+ (Licence M365 requise.)
+
+2
+.
+Office 2019 Pro Plus
+ (Licence Volume requise.)
+
+3
+.
+Office 2019 Famille/PME
+ (Licence Retail requise.)
+
+4
+.
+Office 2021 Pro Plus
+ (Licence Volume requise.)
+
+5
+.
+Office 2021 Famille/PME
+ (Licence Retail requise.)
+
+6
+.
+OpenVPN Connect
+
+
+7
+.
+FortiClient VPN
+
+
+8
+.
+VLC Media Player
+
+---------------------------------------
+[2025-04-25 20:06:54] [INFO] Aucun logiciel optionnel sélectionné.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Config Confidentialité & Optimisation
+
+
+[2025-04-25 20:06:54] [STEP] Début de l'étape : Config Confidentialité & Optimisation
+[2025-04-25 20:06:54] [INFO] Application paramètres confidentialité, jeux, optimisation...
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:54] [WARN] Erreur clé registre 'Enabled' dans 'HKCU\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'HttpAcceptLanguageOptOut' dans 'HKCU\Control Panel\International\User Profile'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'Start_TrackProgs' dans 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Privacy'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'SubscribedContent-338389Enabled' dans 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'SubscribedContent-310093Enabled' dans 'HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'AllowAutoGameMode' dans 'HKCU\Software\Microsoft\GameBar'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'UseNexusToolbar' dans 'HKCU\Software\Microsoft\GameBar'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'AppCaptureEnabled' dans 'HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+False
+[2025-04-25 20:06:55] [INFO] Activation MàJ autres produits Microsoft...
+
+[2025-04-25 20:06:55] [SUCCESS] Service Microsoft Update enregistré.
+[2025-04-25 20:06:55] [INFO] Désactivation Delivery Optimization (P2P)...
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'DODownloadMode' dans 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+[2025-04-25 20:06:55] [INFO] Désactivation OneDrive, Edge, Copilot au démarrage...
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'DisableFileSyncNGSC' dans 'HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'StartupBoostEnabled' dans 'HKLM\SOFTWARE\Policies\Microsoft\Edge'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+PS>Erreur de terminaison (Set-ItemProperty) : « Impossible de trouver un paramètre correspondant au nom « Type ». »
+[2025-04-25 20:06:55] [WARN] Erreur clé registre 'ShowCopilotButton' dans 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'. Erreur: Impossible de trouver un paramètre correspondant au nom « Type ».
+[2025-04-25 20:06:55] [SUCCESS] Config Confidentialité & Optimisation terminée.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Install Outils Fabricant
+
+
+[2025-04-25 20:06:56] [STEP] Début de l'étape : Install Outils Fabricant
+[2025-04-25 20:06:56] [INFO] Fabricant non géré (innotek GmbH).
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Install Logiciel PRO (GoToAssist)
+
+
+[2025-04-25 20:06:56] [STEP] Début de l'étape : Install Logiciel PRO (GoToAssist)
+[2025-04-25 20:06:56] [SUCCESS] GoToAssist.exe copié.
+[2025-04-25 20:06:56] [INFO] Raccourci créé : GoToAssist.lnk
+RegistrationState ServiceID                            IsPendingRegistrationWithAU Service
+----------------- ---------                            --------------------------- -------
+                3 7971f918-a847-4430-9279-4a52d1efe18d                       False System.__ComObject
+False
+False
+False
+False
+True
+[2025-04-25 20:06:56] [INFO] Raccourci créé : GoToAssist.lnk
+True
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Config Infos OEM
+
+
+[2025-04-25 20:06:57] [STEP] Début de l'étape : Config Infos OEM
+[2025-04-25 20:06:57] [INFO] Définition infos OEM...
+True
+True
+True
+True
+[2025-04-25 20:06:57] [SUCCESS] Infos OEM définies.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Création Raccourcis & Épinglage
+
+
+[2025-04-25 20:06:57] [STEP] Début de l'étape : Création Raccourcis & Épinglage
+[2025-04-25 20:06:57] [INFO] Création raccourci Adobe Acrobat Reader bureau public...
+[2025-04-25 20:06:57] [WARN] Adobe Reader introuvable. Raccourci bureau non créé.
+[2025-04-25 20:06:57] [WARN] Raccourci Chrome non trouvé menu Démarrer pour épinglage.
+[2025-04-25 20:06:57] [WARN] Raccourci Acrobat Reader non trouvé menu Démarrer pour épinglage.
+[2025-04-25 20:06:57] [SUCCESS] Création raccourcis & tentatives épinglage terminées.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Mises à jour Windows
+
+
+[2025-04-25 20:06:57] [STEP] Début de l'étape : Mises à jour Windows
+[2025-04-25 20:06:57] [INFO] Préparation MàJ Windows...
+
+PS>Erreur de terminaison (Install-Module) : « Impossible de trouver un paramètre correspondant au nom « ForceBootstrap ». »
+[2025-04-25 20:07:02] [ERROR] Échec préparation module PSWindowsUpdate. Erreur: Impossible de trouver un paramètre correspondant au nom « ForceBootstrap ».
+[2025-04-25 20:07:02] [WARN] Module PSWindowsUpdate non chargé, étape MàJ Windows ignorée.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Planification Nettoyage Final
+
+
+[2025-04-25 20:07:02] [STEP] Début de l'étape : Planification Nettoyage Final
+[2025-04-25 20:07:02] [INFO] Configuration nettoyage fichiers/dossiers déploiement (sauf Logs)...
+True
+[2025-04-25 20:07:02] [SUCCESS] Nettoyage (sauf Logs) programmé via RunOnce.
+
+         PROGRAMME DE PREPARATION DE POSTE Koesio Aquitaine (PRO)
+                            Version 3.6.2025
+                            Étape : Terminé
+
+
+[2025-04-25 20:07:02] [STEP] Début de l'étape : Terminé
+[2025-04-25 20:07:02] [SUCCESS] Script déploiement Koesio v3.6.2025 (PRO) terminé.
+[2025-04-25 20:07:02] [WARN] Redémarrage requis pour nom PC.
+[2025-04-25 20:07:02] [WARN] REDÉMARRAGE REQUIS pour finaliser.
+[2025-04-25 20:07:02] [INFO] Redémarrage...
+**********************
+Fin de la transcription Windows PowerShell
+Heure de fin : 20250425200702
+**********************

@@ -1,0 +1,202 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250425212007
+Nom d'utilisateur : DESKTOP-LPLRTEN\Utilisateur
+Utilisateur runAs :  DESKTOP-LPLRTEN\Utilisateur
+Nom de la configuration : 
+Ordinateur : DESKTOP-LPLRTEN (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -File \\VBOXSVR\Deploy_V4.1\Deploy.ps1
+ID de processus : 3728
+PSVersion: 5.1.26100.1591
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.1591
+BuildVersion: 10.0.26100.1591
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est \\VBOXSVR\Deploy_V4.1\Logs\Deploy_20250425_212005.log
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Vérifications Initiales
+================================================================================
+[2025-04-25 21:20:15] [STEP] Début de l'étape : Vérifications Initiales
+[2025-04-25 21:20:15] [STEP] Début de l'étape : Vérifications Initiales
+[2025-04-25 21:20:15] [INFO] Démarrage du script de déploiement Koesio Aquitaine v4.1.2025
+[2025-04-25 21:20:15] [INFO] Démarrage du script de déploiement Koesio Aquitaine v4.1.2025
+[2025-04-25 21:20:15] [INFO] Log Level: INFO
+[2025-04-25 21:20:15] [INFO] Log Level: INFO
+[2025-04-25 21:20:15] [VERBOSE] Chemin du script: \\VBOXSVR\Deploy_V4.1
+[2025-04-25 21:20:15] [VERBOSE] Fichier de log: \\VBOXSVR\Deploy_V4.1\Logs\Deploy_20250425_212005.log
+[2025-04-25 21:20:15] [INFO] Vérification des droits administrateur...
+[2025-04-25 21:20:15] [INFO] Vérification des droits administrateur...
+[2025-04-25 21:20:15] [SUCCESS] Droits administrateur confirmés.
+[2025-04-25 21:20:15] [SUCCESS] Droits administrateur confirmés.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Configuration Nom Ordinateur
+================================================================================
+[2025-04-25 21:20:15] [STEP] Début de l'étape : Configuration Nom Ordinateur
+[2025-04-25 21:20:15] [STEP] Début de l'étape : Configuration Nom Ordinateur
+[2025-04-25 21:20:16] [INFO] Utilisation du numéro de série comme nom cible: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 21:20:16] [INFO] Utilisation du numéro de série comme nom cible: VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840
+[2025-04-25 21:20:16] [INFO] Nom actuel: 'DESKTOP-LPLRTEN'. Nom cible: 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'.
+[2025-04-25 21:20:16] [INFO] Nom actuel: 'DESKTOP-LPLRTEN'. Nom cible: 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'.
+[2025-04-25 21:20:16] [INFO] Tentative de renommage...
+[2025-04-25 21:20:16] [INFO] Tentative de renommage...
+AVERTISSEMENT : Les modifications seront prises en compte après le redémarrage de l'ordinateur DESKTOP-LPLRTEN.
+[2025-04-25 21:20:17] [SUCCESS] Renommage de l'ordinateur réussi vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'. Un redémarrage est requis pour appliquer le changement.
+[2025-04-25 21:20:17] [SUCCESS] Renommage de l'ordinateur réussi vers 'VirtualBox-7d3a3f06-51fc-42d8-95d0-4ef7aa51c840'. Un redémarrage est requis pour appliquer le changement.
+[2025-04-25 21:20:17] [WARN] NOTE: Le script continuera avec l'ancien nom ('DESKTOP-LPLRTEN') jusqu'au redémarrage.
+[2025-04-25 21:20:17] [WARN] NOTE: Le script continuera avec l'ancien nom ('DESKTOP-LPLRTEN') jusqu'au redémarrage.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Configuration Système de Base
+================================================================================
+[2025-04-25 21:20:17] [STEP] Début de l'étape : Configuration Système de Base
+[2025-04-25 21:20:17] [STEP] Début de l'étape : Configuration Système de Base
+[2025-04-25 21:20:17] [INFO] Configuration des icônes du bureau...
+[2025-04-25 21:20:17] [INFO] Configuration des icônes du bureau...
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}', Value='0', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{20D04FE0-3AEA-1069-A2D8-08002B30309D}', Value='0', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{59031a47-3f72-44a7-89c5-5595fe6b30ee}', Value='0', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel', Name='{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}', Value='1', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}' = '1' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}', Value='0', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Clé de registre créée: HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{20D04FE0-3AEA-1069-A2D8-08002B30309D}', Value='0', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{20D04FE0-3AEA-1069-A2D8-08002B30309D}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{59031a47-3f72-44a7-89c5-5595fe6b30ee}', Value='0', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' = '0' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu', Name='{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}', Value='1', Type='DWORD'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: '{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}' = '1' dans 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu'.
+True
+[2025-04-25 21:20:17] [SUCCESS] Configuration des icônes du bureau terminée.
+[2025-04-25 21:20:17] [SUCCESS] Configuration des icônes du bureau terminée.
+[2025-04-25 21:20:17] [INFO] Activation du NumLock au démarrage...
+[2025-04-25 21:20:17] [INFO] Activation du NumLock au démarrage...
+[2025-04-25 21:20:17] [VERBOSE] Configuration Registre: Path='HKCU:\Control Panel\Keyboard', Name='InitialKeyboardIndicators', Value='2', Type='String'
+[2025-04-25 21:20:17] [VERBOSE] Valeur de registre définie: 'InitialKeyboardIndicators' = '2' dans 'HKCU:\Control Panel\Keyboard'.
+True
+[2025-04-25 21:20:17] [INFO] Configuration des paramètres d'alimentation...
+[2025-04-25 21:20:17] [INFO] Configuration des paramètres d'alimentation...
+[2025-04-25 21:20:18] [SUCCESS] Paramètres d'alimentation (veille moniteur, disque, PC) configurés.
+[2025-04-25 21:20:18] [SUCCESS] Paramètres d'alimentation (veille moniteur, disque, PC) configurés.
+[2025-04-25 21:20:18] [INFO] Désactivation du démarrage rapide (Hiberboot)...
+[2025-04-25 21:20:18] [INFO] Désactivation du démarrage rapide (Hiberboot)...
+[2025-04-25 21:20:18] [VERBOSE] Configuration Registre: Path='HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power', Name='HiberbootEnabled', Value='0', Type='DWORD'
+[2025-04-25 21:20:18] [VERBOSE] Valeur de registre définie: 'HiberbootEnabled' = '0' dans 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power'.
+True
+[2025-04-25 21:20:18] [INFO] Nettoyage des raccourcis Microsoft Edge sur les bureaux...
+[2025-04-25 21:20:18] [INFO] Nettoyage des raccourcis Microsoft Edge sur les bureaux...
+Impossible de convertir l'argument «folder» (valeur «Public») de «GetFolderPath» en type «
+System.Environment+SpecialFolder»: «Impossible de convertir la valeur «Public» en type «System.Environment+SpecialFolder
+». Erreur: «Impossible de faire correspondre le nom d'identificateur Public à un nom d'énumérateur valide. Spécifiez 
+l'un des noms d'énumérateur suivants et réessayez :
+Desktop, Programs, MyDocuments, Personal, Favorites, Startup, Recent, SendTo, StartMenu, MyMusic, MyVideos, 
+DesktopDirectory, MyComputer, NetworkShortcuts, Fonts, Templates, CommonStartMenu, CommonPrograms, CommonStartup, 
+CommonDesktopDirectory, ApplicationData, PrinterShortcuts, LocalApplicationData, InternetCache, Cookies, History, 
+CommonApplicationData, Windows, System, ProgramFiles, MyPictures, UserProfile, SystemX86, ProgramFilesX86, 
+CommonProgramFiles, CommonProgramFilesX86, CommonTemplates, CommonDocuments, CommonAdminTools, AdminTools, CommonMusic, 
+CommonPictures, CommonVideos, Resources, LocalizedResources, CommonOemLinks, CDBurning»»
+Au caractère \\VBOXSVR\Deploy_V4.1\Deploy.ps1:277 : 5
++     Join-Path ([Environment]::GetFolderPath('Public')) 'Desktop\Micro ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodException
+    + FullyQualifiedErrorId : MethodArgumentConversionInvalidCastArgument
+Impossible de convertir l'argument «folder» (valeur «Public») de «GetFolderPath» en type «System.Environment+SpecialFolder»: «Impossible de convertir la valeur «Public» en type «
+System.Environment+SpecialFolder». Erreur: «Impossible de faire correspondre le nom d'identificateur Public à un nom d'énumérateur valide. Spécifiez l'un des noms d'énumérateur suivants et
+réessayez :
+Desktop, Programs, MyDocuments, Personal, Favorites, Startup, Recent, SendTo, StartMenu, MyMusic, MyVideos, DesktopDirectory, MyComputer, NetworkShortcuts, Fonts, Templates,
+CommonStartMenu, CommonPrograms, CommonStartup, CommonDesktopDirectory, ApplicationData, PrinterShortcuts, LocalApplicationData, InternetCache, Cookies, History, CommonApplicationData,
+Windows, System, ProgramFiles, MyPictures, UserProfile, SystemX86, ProgramFilesX86, CommonProgramFiles, CommonProgramFilesX86, CommonTemplates, CommonDocuments, CommonAdminTools,
+AdminTools, CommonMusic, CommonPictures, CommonVideos, Resources, LocalizedResources, CommonOemLinks, CDBurning»»
+Au caractère \\VBOXSVR\Deploy_V4.1\Deploy.ps1:277 : 5
++     Join-Path ([Environment]::GetFolderPath('Public')) 'Desktop\Micro ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodException
+    + FullyQualifiedErrorId : MethodArgumentConversionInvalidCastArgument
+
+[2025-04-25 21:20:18] [SUCCESS] Configuration système de base terminée.
+[2025-04-25 21:20:18] [SUCCESS] Configuration système de base terminée.
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Gestion BitLocker
+================================================================================
+[2025-04-25 21:20:18] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 21:20:18] [STEP] Début de l'étape : Gestion BitLocker
+[2025-04-25 21:20:18] [INFO] Vérification de l'état de BitLocker...
+[2025-04-25 21:20:18] [INFO] Vérification de l'état de BitLocker...
+AVERTISSEMENT : Les noms de certaines commandes importées du module « BitLocker » contiennent des verbes non approuvés qui peuvent les rendre moins détectables. Pour trouver les commandes comportant des verbes non approuvés, réexécutez la commande Import-Module avec le paramètre Verbose. Pour obtenir la liste des verbes approuvés, tapez Get-Verb.
+[2025-04-25 21:20:20] [INFO] Volume 'C:': Statut = 'EncryptionInProgress', Type = 'OperatingSystem', Pourcentage Chiffré = 97%
+[2025-04-25 21:20:20] [INFO] Volume 'C:': Statut = 'EncryptionInProgress', Type = 'OperatingSystem', Pourcentage Chiffré = 97%
+[2025-04-25 21:20:20] [INFO] Le volume 'C:' est actuellement 'EncryptionInProgress'.
+[2025-04-25 21:20:20] [INFO] Le volume 'C:' est actuellement 'EncryptionInProgress'.
+[2025-04-25 21:20:20] [INFO] Aucune clé de récupération de type 'Password' trouvée pour 'C:'.
+[2025-04-25 21:20:20] [INFO] Aucune clé de récupération de type 'Password' trouvée pour 'C:'.
+[2025-04-25 21:20:20] [INFO] Tentative de désactivation permanente de BitLocker pour 'C:'...
+[2025-04-25 21:20:20] [INFO] Tentative de désactivation permanente de BitLocker pour 'C:'...
+[2025-04-25 21:20:20] [VERBOSE] Suspension de la protection BitLocker pour 'C:'...
+
+
+   ComputerName : DESKTOP-LPLRTEN
+
+VolumeType      Mount CapacityGB VolumeStatus           Encryption KeyProtector              AutoUnlock Protection
+                Point                                   Percentage                           Enabled    Status
+----------      ----- ---------- ------------           ---------- ------------              ---------- ----------
+OperatingSystem C:         79,24 EncryptionInProgress   97         {}                                   Off
+[2025-04-25 21:20:20] [SUCCESS] Protection BitLocker suspendue pour 'C:'.
+[2025-04-25 21:20:20] [SUCCESS] Protection BitLocker suspendue pour 'C:'.
+[2025-04-25 21:20:20] [VERBOSE] Tentative de nettoyage de l'AutoUnlock BitLocker (globalement)...
+OperatingSystem C:         79,24 EncryptionInProgress   97         {}                                   Off
+[2025-04-25 21:20:21] [VERBOSE] Commande Clear-BitLockerAutoUnlock exécutée.
+[2025-04-25 21:20:21] [INFO] Lancement du déchiffrement pour 'C:' via Disable-BitLocker...
+[2025-04-25 21:20:21] [INFO] Lancement du déchiffrement pour 'C:' via Disable-BitLocker...
+OperatingSystem C:         79,24 DecryptionInProgress   16         {}                                   Off
+[2025-04-25 21:20:21] [SUCCESS] Déchiffrement INITIÉ pour 'C:'. Cela peut prendre du temps en arrière-plan.
+[2025-04-25 21:20:21] [SUCCESS] Déchiffrement INITIÉ pour 'C:'. Cela peut prendre du temps en arrière-plan.
+[2025-04-25 21:20:21] [INFO] L'état actuel du déchiffrement peut être vérifié avec 'manage-bde -status C:'.
+[2025-04-25 21:20:21] [INFO] L'état actuel du déchiffrement peut être vérifié avec 'manage-bde -status C:'.
+[2025-04-25 21:20:21] [WARN] ATTENTION: Des stratégies de groupe (GPO) pourraient réactiver BitLocker après redémarrage.
+[2025-04-25 21:20:21] [WARN] ATTENTION: Des stratégies de groupe (GPO) pourraient réactiver BitLocker après redémarrage.
+[2025-04-25 21:20:21] [VERBOSE] --- Fin traitement volume 'C:' ---
+================================================================================
+  DEPLOY KOESIO AQUITAINE (PRO) v4.1.2025 | Étape : Installation Chocolatey & Logiciels Base
+================================================================================
+[2025-04-25 21:20:21] [STEP] Début de l'étape : Installation Chocolatey & Logiciels Base
+[2025-04-25 21:20:21] [STEP] Début de l'étape : Installation Chocolatey & Logiciels Base
+[2025-04-25 21:20:21] [INFO] Vérification de l'installation de Chocolatey...
+[2025-04-25 21:20:21] [INFO] Vérification de l'installation de Chocolatey...
+[2025-04-25 21:20:24] [INFO] Chocolatey non trouvé. Tentative d'installation...
+[2025-04-25 21:20:24] [INFO] Chocolatey non trouvé. Tentative d'installation...
+Forcing web requests to allow TLS v1.2 (Required for requests to Chocolatey.org)
+Getting latest version of the Chocolatey package for download.
+Not using proxy.
+Getting Chocolatey from https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3.
+Downloading https://community.chocolatey.org/api/v2/package/chocolatey/2.4.3 to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip
+Not using proxy.
+Extracting C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall\chocolatey.zip to C:\Users\UTILIS~1\AppData\Local\Temp\chocolatey\chocoInstall
+Installing Chocolatey on the local machine
+Creating ChocolateyInstall as an environment variable (targeting 'Machine') 
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell 
+  before you can use choco.
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey CLI folders if they do not already exist.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+AVERTISSEMENT : Not setting tab completion: Profile file does not exist at 'C:\Users\Utilisateur\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.

@@ -1,0 +1,129 @@
+﻿**********************
+Début de la transcription Windows PowerShell
+Heure de début : 20250430114650
+Nom d'utilisateur : F75KW64\Utilisateur
+Utilisateur runAs :  F75KW64\Utilisateur
+Nom de la configuration : 
+Ordinateur : F75KW64 (Microsoft Windows NT 10.0.26100.0)
+Application hôte : C:\WINDOWS\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+ID de processus : 3868
+PSVersion: 5.1.26100.3624
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.3624
+BuildVersion: 10.0.26100.3624
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcription démarrée, le fichier de sortie est D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log
+Journalisation démarrée dans : D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log
+
+L’opération « [System.Char] * [System.Int32] » n’est pas définie.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:155 : 5
++     Write-Host ($BorderChar * $width) -ForegroundColor $Color
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation : (=:Char) [], RuntimeException
+    + FullyQualifiedErrorId : NotADefinedOperationForType
+L’opération « [System.Char] * [System.Int32] » n’est pas définie.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:155 : 5
++     Write-Host ($BorderChar * $width) -ForegroundColor $Color
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation : (=:Char) [], RuntimeException
+    + FullyQualifiedErrorId : NotADefinedOperationForType
+
+L'argument spécifié n'était pas dans les limites de la plage des valeurs valides.
+Nom du paramètre : times
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:156 : 36
++     Write-Host "$($BorderChar) $($(' ' * $leftPad))$Title$((' ' * $ri ...
++                                    ~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], ArgumentOutOfRangeException
+    + FullyQualifiedErrorId : System.ArgumentOutOfRangeException
+L'argument spécifié n'était pas dans les limites de la plage des valeurs valides.
+Nom du paramètre : times
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:156 : 36
++     Write-Host "$($BorderChar) $($(' ' * $leftPad))$Title$((' ' * $ri ...
++                                    ~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], ArgumentOutOfRangeException
+    + FullyQualifiedErrorId : System.ArgumentOutOfRangeException
+
+L'argument spécifié n'était pas dans les limites de la plage des valeurs valides.
+Nom du paramètre : times
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:156 : 60
++ ... "$($BorderChar) $($(' ' * $leftPad))$Title$((' ' * $rightPad)) $($Bor ...
++                                                 ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], ArgumentOutOfRangeException
+    + FullyQualifiedErrorId : System.ArgumentOutOfRangeException
+L'argument spécifié n'était pas dans les limites de la plage des valeurs valides.
+Nom du paramètre : times
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:156 : 60
++ ... "$($BorderChar) $($(' ' * $leftPad))$Title$((' ' * $rightPad)) $($Bor ...
++                                                 ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], ArgumentOutOfRangeException
+    + FullyQualifiedErrorId : System.ArgumentOutOfRangeException
+
+= Déploiement Koesio v6.1.2025 =
+L’opération « [System.Char] * [System.Int32] » n’est pas définie.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:157 : 5
++     Write-Host ($BorderChar * $width) -ForegroundColor $Color
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation : (=:Char) [], RuntimeException
+    + FullyQualifiedErrorId : NotADefinedOperationForType
+L’opération « [System.Char] * [System.Int32] » n’est pas définie.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:157 : 5
++     Write-Host ($BorderChar * $width) -ForegroundColor $Color
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation : (=:Char) [], RuntimeException
+    + FullyQualifiedErrorId : NotADefinedOperationForType
+
+[>>>] [11:46:50] Déploiement Koesio v6.1.2025
+PS>Erreur de terminaison (Out-File) : « Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', car il est en cours d'utilisation par un autre processus. »
+Out-File : Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', 
+car il est en cours d'utilisation par un autre processus.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:138 : 118
++ ... ion)$Message" | Out-File -LiteralPath $LogFile -Append -Encoding UTF8
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+Out-File : Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', car il est en cours
+d'utilisation par un autre processus.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:138 : 118
++ ... ion)$Message" | Out-File -LiteralPath $LogFile -Append -Encoding UTF8
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+PS>Erreur de terminaison (Out-File) : « Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', car il est en cours d'utilisation par un autre processus. »
+Out-File : Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', 
+car il est en cours d'utilisation par un autre processus.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:138 : 118
++ ... ion)$Message" | Out-File -LiteralPath $LogFile -Append -Encoding UTF8
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+Out-File : Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', car il est en cours
+d'utilisation par un autre processus.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:138 : 118
++ ... ion)$Message" | Out-File -LiteralPath $LogFile -Append -Encoding UTF8
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+  [ERR] [11:46:50] ERREUR: Ce script doit être exécuté avec des privilèges Administrateur.
+PS>Erreur de terminaison (Out-File) : « Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', car il est en cours d'utilisation par un autre processus. »
+Out-File : Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', 
+car il est en cours d'utilisation par un autre processus.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:138 : 118
++ ... ion)$Message" | Out-File -LiteralPath $LogFile -Append -Encoding UTF8
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+Out-File : Le processus ne peut pas accéder au fichier 'D:\Deploy_DSC_V5\Logs\Deploy-Orchestrator_20250430_114650.log', car il est en cours
+d'utilisation par un autre processus.
+Au caractère D:\Deploy_DSC_V5\Deploy-Machine.ps1:138 : 118
++ ... ion)$Message" | Out-File -LiteralPath $LogFile -Append -Encoding UTF8
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], IOException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+Appuyez sur Entrée pour quitter...
