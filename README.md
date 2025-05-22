@@ -1,2 +1,5 @@
 # Deploy_PC_Windows
-Script Powershell de déploiement d'ordinateurs
+
+Old versions unused of the Deploy script for the implementation of new Windows machines.
+
+##May not work##
